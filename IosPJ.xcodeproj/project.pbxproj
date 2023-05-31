@@ -16,29 +16,32 @@
 		6F6F156F2A25DEC100DB8376 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F156E2A25DEC100DB8376 /* AudioToolbox.framework */; };
 		6F6F15712A25DECD00DB8376 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15702A25DECC00DB8376 /* AVFoundation.framework */; };
 		6F6F15732A25DED800DB8376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15722A25DED800DB8376 /* Foundation.framework */; };
-		6F6F158B2A25E00C00DB8376 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15832A25E00300DB8376 /* libcrypto.a */; };
-		6F6F158C2A25E00C00DB8376 /* libg7221codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F157C2A25E00100DB8376 /* libg7221codec.a */; };
-		6F6F158D2A25E00D00DB8376 /* libgsmcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F158A2A25E00500DB8376 /* libgsmcodec.a */; };
-		6F6F158E2A25E00D00DB8376 /* libilbccodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15892A25E00500DB8376 /* libilbccodec.a */; };
-		6F6F158F2A25E00D00DB8376 /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F157A2A25E00000DB8376 /* libpj.a */; };
-		6F6F15902A25E00E00DB8376 /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15872A25E00400DB8376 /* libpjlib-util.a */; };
-		6F6F15912A25E00E00DB8376 /* libpjmedia-audiodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15792A25E00000DB8376 /* libpjmedia-audiodev.a */; };
-		6F6F15922A25E00F00DB8376 /* libpjmedia-codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F157F2A25E00200DB8376 /* libpjmedia-codec.a */; };
-		6F6F15932A25E00F00DB8376 /* libpjmedia-videodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15882A25E00500DB8376 /* libpjmedia-videodev.a */; };
-		6F6F15942A25E01000DB8376 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F157B2A25E00100DB8376 /* libpjmedia.a */; };
-		6F6F15952A25E01100DB8376 /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15782A25E00000DB8376 /* libpjnath.a */; };
-		6F6F15962A25E01100DB8376 /* libpjsdp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15762A25DFFF00DB8376 /* libpjsdp.a */; };
-		6F6F15972A25E01200DB8376 /* libpjsip-simple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15742A25DFFF00DB8376 /* libpjsip-simple.a */; };
-		6F6F15982A25E01300DB8376 /* libpjsip-ua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15842A25E00400DB8376 /* libpjsip-ua.a */; };
-		6F6F15992A25E01400DB8376 /* libpjsip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15852A25E00400DB8376 /* libpjsip.a */; };
-		6F6F159A2A25E01500DB8376 /* libpjsua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15752A25DFFF00DB8376 /* libpjsua.a */; };
-		6F6F159B2A25E01600DB8376 /* libpjsua2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15862A25E00400DB8376 /* libpjsua2.a */; };
-		6F6F159C2A25E01700DB8376 /* libresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F157D2A25E00100DB8376 /* libresample.a */; };
-		6F6F159D2A25E01800DB8376 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15802A25E00200DB8376 /* libspeex.a */; };
-		6F6F159E2A25E01900DB8376 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15772A25E00000DB8376 /* libsrtp.a */; };
-		6F6F159F2A25E01A00DB8376 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F157E2A25E00200DB8376 /* libssl.a */; };
-		6F6F15A02A25E01B00DB8376 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15812A25E00300DB8376 /* libwebrtc.a */; };
-		6F6F15A12A25E01C00DB8376 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15822A25E00300DB8376 /* libyuv.a */; };
+		6F6F15A72A25E69500DB8376 /* wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F15A62A25E69500DB8376 /* wrapper.mm */; };
+		6F6F15AA2A25E71200DB8376 /* CustomPJSUA2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */; };
+		6F6F15F02A26CA8E00DB8376 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EB2A26CA8600DB8376 /* libcrypto.a */; };
+		6F6F15F12A26CA8E00DB8376 /* libg7221codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E12A26CA8300DB8376 /* libg7221codec.a */; };
+		6F6F15F22A26CA8F00DB8376 /* libgsmcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DC2A26CA8100DB8376 /* libgsmcodec.a */; };
+		6F6F15F32A26CA9000DB8376 /* libilbccodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DF2A26CA8200DB8376 /* libilbccodec.a */; };
+		6F6F15F42A26CA9100DB8376 /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EF2A26CA8700DB8376 /* libpj.a */; };
+		6F6F15F52A26CA9100DB8376 /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15D92A26CA8000DB8376 /* libpjlib-util.a */; };
+		6F6F15F62A26CA9200DB8376 /* libpjmedia-audiodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EE2A26CA8700DB8376 /* libpjmedia-audiodev.a */; };
+		6F6F15F72A26CA9400DB8376 /* libpjmedia-codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DE2A26CA8200DB8376 /* libpjmedia-codec.a */; };
+		6F6F15F82A26CA9500DB8376 /* libpjmedia-videodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EC2A26CA8600DB8376 /* libpjmedia-videodev.a */; };
+		6F6F15F92A26CA9600DB8376 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E52A26CA8400DB8376 /* libpjmedia.a */; };
+		6F6F15FA2A26CA9700DB8376 /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DB2A26CA8100DB8376 /* libpjnath.a */; };
+		6F6F15FB2A26CA9900DB8376 /* libpjsdp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E02A26CA8200DB8376 /* libpjsdp.a */; };
+		6F6F15FC2A26CA9A00DB8376 /* libpjsip-simple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15ED2A26CA8600DB8376 /* libpjsip-simple.a */; };
+		6F6F15FD2A26CA9C00DB8376 /* libpjsip-ua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E22A26CA8300DB8376 /* libpjsip-ua.a */; };
+		6F6F15FE2A26CA9E00DB8376 /* libpjsip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E82A26CA8500DB8376 /* libpjsip.a */; };
+		6F6F15FF2A26CA9F00DB8376 /* libpjsua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DD2A26CA8100DB8376 /* libpjsua.a */; };
+		6F6F16002A26CAA100DB8376 /* libpjsua2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E92A26CA8500DB8376 /* libpjsua2.a */; };
+		6F6F16012A26CAA300DB8376 /* libresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E32A26CA8300DB8376 /* libresample.a */; };
+		6F6F16022A26CAA500DB8376 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E72A26CA8400DB8376 /* libspeex.a */; };
+		6F6F16032A26CAA800DB8376 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E62A26CA8400DB8376 /* libsrtp.a */; };
+		6F6F16042A26CAAA00DB8376 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EA2A26CA8500DB8376 /* libssl.a */; };
+		6F6F16052A26CAAC00DB8376 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DA2A26CA8000DB8376 /* libwebrtc.a */; };
+		6F6F16062A26CAAE00DB8376 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E42A26CA8300DB8376 /* libyuv.a */; };
+		6F6F16082A26CB8300DB8376 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F16072A26CB8300DB8376 /* Register.swift */; };
 		D99D4FDEECB83DAED7B9BCB7 /* Pods_IosPJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F0A17C16C3C31D113C8AFE /* Pods_IosPJ.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,29 +58,35 @@
 		6F6F156E2A25DEC100DB8376 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6F6F15702A25DECC00DB8376 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6F6F15722A25DED800DB8376 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		6F6F15742A25DFFF00DB8376 /* libpjsip-simple.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-simple.a"; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjsip-simple.a"; sourceTree = "<group>"; };
-		6F6F15752A25DFFF00DB8376 /* libpjsua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjsua.a"; sourceTree = "<group>"; };
-		6F6F15762A25DFFF00DB8376 /* libpjsdp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsdp.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjsdp.a"; sourceTree = "<group>"; };
-		6F6F15772A25E00000DB8376 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libsrtp.a"; sourceTree = "<group>"; };
-		6F6F15782A25E00000DB8376 /* libpjnath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjnath.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjnath.a"; sourceTree = "<group>"; };
-		6F6F15792A25E00000DB8376 /* libpjmedia-audiodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-audiodev.a"; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjmedia-audiodev.a"; sourceTree = "<group>"; };
-		6F6F157A2A25E00000DB8376 /* libpj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpj.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpj.a"; sourceTree = "<group>"; };
-		6F6F157B2A25E00100DB8376 /* libpjmedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjmedia.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjmedia.a"; sourceTree = "<group>"; };
-		6F6F157C2A25E00100DB8376 /* libg7221codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg7221codec.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libg7221codec.a"; sourceTree = "<group>"; };
-		6F6F157D2A25E00100DB8376 /* libresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libresample.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libresample.a"; sourceTree = "<group>"; };
-		6F6F157E2A25E00200DB8376 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libssl.a"; sourceTree = "<group>"; };
-		6F6F157F2A25E00200DB8376 /* libpjmedia-codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec.a"; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjmedia-codec.a"; sourceTree = "<group>"; };
-		6F6F15802A25E00200DB8376 /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeex.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libspeex.a"; sourceTree = "<group>"; };
-		6F6F15812A25E00300DB8376 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebrtc.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libwebrtc.a"; sourceTree = "<group>"; };
-		6F6F15822A25E00300DB8376 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyuv.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libyuv.a"; sourceTree = "<group>"; };
-		6F6F15832A25E00300DB8376 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libcrypto.a"; sourceTree = "<group>"; };
-		6F6F15842A25E00400DB8376 /* libpjsip-ua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-ua.a"; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjsip-ua.a"; sourceTree = "<group>"; };
-		6F6F15852A25E00400DB8376 /* libpjsip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsip.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjsip.a"; sourceTree = "<group>"; };
-		6F6F15862A25E00400DB8376 /* libpjsua2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua2.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjsua2.a"; sourceTree = "<group>"; };
-		6F6F15872A25E00400DB8376 /* libpjlib-util.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util.a"; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjlib-util.a"; sourceTree = "<group>"; };
-		6F6F15882A25E00500DB8376 /* libpjmedia-videodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-videodev.a"; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libpjmedia-videodev.a"; sourceTree = "<group>"; };
-		6F6F15892A25E00500DB8376 /* libilbccodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libilbccodec.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libilbccodec.a"; sourceTree = "<group>"; };
-		6F6F158A2A25E00500DB8376 /* libgsmcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsmcodec.a; path = "../../Libraries/pjproject-2.13/libs/ios/all_arch/libgsmcodec.a"; sourceTree = "<group>"; };
+		6F6F15A42A25E68800DB8376 /* wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrapper.h; sourceTree = "<group>"; };
+		6F6F15A52A25E69400DB8376 /* IosPJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IosPJ-Bridging-Header.h"; sourceTree = "<group>"; };
+		6F6F15A62A25E69500DB8376 /* wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wrapper.mm; sourceTree = "<group>"; };
+		6F6F15A82A25E71200DB8376 /* CustomPJSUA2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CustomPJSUA2.hpp; sourceTree = "<group>"; };
+		6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomPJSUA2.cpp; sourceTree = "<group>"; };
+		6F6F15D92A26CA8000DB8376 /* libpjlib-util.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util.a"; path = "Libraries/libpjlib-util.a"; sourceTree = "<group>"; };
+		6F6F15DA2A26CA8000DB8376 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebrtc.a; path = Libraries/libwebrtc.a; sourceTree = "<group>"; };
+		6F6F15DB2A26CA8100DB8376 /* libpjnath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjnath.a; path = Libraries/libpjnath.a; sourceTree = "<group>"; };
+		6F6F15DC2A26CA8100DB8376 /* libgsmcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsmcodec.a; path = Libraries/libgsmcodec.a; sourceTree = "<group>"; };
+		6F6F15DD2A26CA8100DB8376 /* libpjsua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua.a; path = Libraries/libpjsua.a; sourceTree = "<group>"; };
+		6F6F15DE2A26CA8200DB8376 /* libpjmedia-codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec.a"; path = "Libraries/libpjmedia-codec.a"; sourceTree = "<group>"; };
+		6F6F15DF2A26CA8200DB8376 /* libilbccodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libilbccodec.a; path = Libraries/libilbccodec.a; sourceTree = "<group>"; };
+		6F6F15E02A26CA8200DB8376 /* libpjsdp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsdp.a; path = Libraries/libpjsdp.a; sourceTree = "<group>"; };
+		6F6F15E12A26CA8300DB8376 /* libg7221codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg7221codec.a; path = Libraries/libg7221codec.a; sourceTree = "<group>"; };
+		6F6F15E22A26CA8300DB8376 /* libpjsip-ua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-ua.a"; path = "Libraries/libpjsip-ua.a"; sourceTree = "<group>"; };
+		6F6F15E32A26CA8300DB8376 /* libresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libresample.a; path = Libraries/libresample.a; sourceTree = "<group>"; };
+		6F6F15E42A26CA8300DB8376 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyuv.a; path = Libraries/libyuv.a; sourceTree = "<group>"; };
+		6F6F15E52A26CA8400DB8376 /* libpjmedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjmedia.a; path = Libraries/libpjmedia.a; sourceTree = "<group>"; };
+		6F6F15E62A26CA8400DB8376 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = Libraries/libsrtp.a; sourceTree = "<group>"; };
+		6F6F15E72A26CA8400DB8376 /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeex.a; path = Libraries/libspeex.a; sourceTree = "<group>"; };
+		6F6F15E82A26CA8500DB8376 /* libpjsip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsip.a; path = Libraries/libpjsip.a; sourceTree = "<group>"; };
+		6F6F15E92A26CA8500DB8376 /* libpjsua2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua2.a; path = Libraries/libpjsua2.a; sourceTree = "<group>"; };
+		6F6F15EA2A26CA8500DB8376 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Libraries/libssl.a; sourceTree = "<group>"; };
+		6F6F15EB2A26CA8600DB8376 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Libraries/libcrypto.a; sourceTree = "<group>"; };
+		6F6F15EC2A26CA8600DB8376 /* libpjmedia-videodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-videodev.a"; path = "Libraries/libpjmedia-videodev.a"; sourceTree = "<group>"; };
+		6F6F15ED2A26CA8600DB8376 /* libpjsip-simple.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-simple.a"; path = "Libraries/libpjsip-simple.a"; sourceTree = "<group>"; };
+		6F6F15EE2A26CA8700DB8376 /* libpjmedia-audiodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-audiodev.a"; path = "Libraries/libpjmedia-audiodev.a"; sourceTree = "<group>"; };
+		6F6F15EF2A26CA8700DB8376 /* libpj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpj.a; path = Libraries/libpj.a; sourceTree = "<group>"; };
+		6F6F16072A26CB8300DB8376 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		74EF4F7EB8EF398514421CDB /* Pods-IosPJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosPJ.release.xcconfig"; path = "Target Support Files/Pods-IosPJ/Pods-IosPJ.release.xcconfig"; sourceTree = "<group>"; };
 		F3AA54520CB26FB445110D63 /* Pods-IosPJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosPJ.debug.xcconfig"; path = "Target Support Files/Pods-IosPJ/Pods-IosPJ.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,33 +96,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F6F15A12A25E01C00DB8376 /* libyuv.a in Frameworks */,
-				6F6F15912A25E00E00DB8376 /* libpjmedia-audiodev.a in Frameworks */,
-				6F6F15962A25E01100DB8376 /* libpjsdp.a in Frameworks */,
+				6F6F16062A26CAAE00DB8376 /* libyuv.a in Frameworks */,
+				6F6F15F62A26CA9200DB8376 /* libpjmedia-audiodev.a in Frameworks */,
+				6F6F15FB2A26CA9900DB8376 /* libpjsdp.a in Frameworks */,
 				D99D4FDEECB83DAED7B9BCB7 /* Pods_IosPJ.framework in Frameworks */,
-				6F6F15932A25E00F00DB8376 /* libpjmedia-videodev.a in Frameworks */,
-				6F6F159D2A25E01800DB8376 /* libspeex.a in Frameworks */,
-				6F6F158B2A25E00C00DB8376 /* libcrypto.a in Frameworks */,
-				6F6F158C2A25E00C00DB8376 /* libg7221codec.a in Frameworks */,
+				6F6F15F82A26CA9500DB8376 /* libpjmedia-videodev.a in Frameworks */,
+				6F6F16022A26CAA500DB8376 /* libspeex.a in Frameworks */,
+				6F6F15F02A26CA8E00DB8376 /* libcrypto.a in Frameworks */,
+				6F6F15F12A26CA8E00DB8376 /* libg7221codec.a in Frameworks */,
 				6F6F156F2A25DEC100DB8376 /* AudioToolbox.framework in Frameworks */,
-				6F6F159E2A25E01900DB8376 /* libsrtp.a in Frameworks */,
-				6F6F159B2A25E01600DB8376 /* libpjsua2.a in Frameworks */,
-				6F6F15A02A25E01B00DB8376 /* libwebrtc.a in Frameworks */,
-				6F6F159F2A25E01A00DB8376 /* libssl.a in Frameworks */,
-				6F6F15942A25E01000DB8376 /* libpjmedia.a in Frameworks */,
-				6F6F15952A25E01100DB8376 /* libpjnath.a in Frameworks */,
-				6F6F158E2A25E00D00DB8376 /* libilbccodec.a in Frameworks */,
+				6F6F16032A26CAA800DB8376 /* libsrtp.a in Frameworks */,
+				6F6F16002A26CAA100DB8376 /* libpjsua2.a in Frameworks */,
+				6F6F16052A26CAAC00DB8376 /* libwebrtc.a in Frameworks */,
+				6F6F16042A26CAAA00DB8376 /* libssl.a in Frameworks */,
+				6F6F15F92A26CA9600DB8376 /* libpjmedia.a in Frameworks */,
+				6F6F15FA2A26CA9700DB8376 /* libpjnath.a in Frameworks */,
+				6F6F15F32A26CA9000DB8376 /* libilbccodec.a in Frameworks */,
 				6F6F15712A25DECD00DB8376 /* AVFoundation.framework in Frameworks */,
-				6F6F159C2A25E01700DB8376 /* libresample.a in Frameworks */,
-				6F6F159A2A25E01500DB8376 /* libpjsua.a in Frameworks */,
-				6F6F158F2A25E00D00DB8376 /* libpj.a in Frameworks */,
-				6F6F158D2A25E00D00DB8376 /* libgsmcodec.a in Frameworks */,
-				6F6F15922A25E00F00DB8376 /* libpjmedia-codec.a in Frameworks */,
-				6F6F15972A25E01200DB8376 /* libpjsip-simple.a in Frameworks */,
+				6F6F16012A26CAA300DB8376 /* libresample.a in Frameworks */,
+				6F6F15FF2A26CA9F00DB8376 /* libpjsua.a in Frameworks */,
+				6F6F15F42A26CA9100DB8376 /* libpj.a in Frameworks */,
+				6F6F15F22A26CA8F00DB8376 /* libgsmcodec.a in Frameworks */,
+				6F6F15F72A26CA9400DB8376 /* libpjmedia-codec.a in Frameworks */,
+				6F6F15FC2A26CA9A00DB8376 /* libpjsip-simple.a in Frameworks */,
 				6F6F15732A25DED800DB8376 /* Foundation.framework in Frameworks */,
-				6F6F15992A25E01400DB8376 /* libpjsip.a in Frameworks */,
-				6F6F15982A25E01300DB8376 /* libpjsip-ua.a in Frameworks */,
-				6F6F15902A25E00E00DB8376 /* libpjlib-util.a in Frameworks */,
+				6F6F15FE2A26CA9E00DB8376 /* libpjsip.a in Frameworks */,
+				6F6F15FD2A26CA9C00DB8376 /* libpjsip-ua.a in Frameworks */,
+				6F6F15F52A26CA9100DB8376 /* libpjlib-util.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +150,7 @@
 		6F6F15592A257CC700DB8376 /* IosPJ */ = {
 			isa = PBXGroup;
 			children = (
+				6F6F15A22A25E56900DB8376 /* PJ */,
 				6F6F155A2A257CC700DB8376 /* AppDelegate.swift */,
 				6F6F155C2A257CC700DB8376 /* SceneDelegate.swift */,
 				6F6F155E2A257CC700DB8376 /* ViewController.swift */,
@@ -152,32 +162,45 @@
 			path = IosPJ;
 			sourceTree = "<group>";
 		};
+		6F6F15A22A25E56900DB8376 /* PJ */ = {
+			isa = PBXGroup;
+			children = (
+				6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */,
+				6F6F15A82A25E71200DB8376 /* CustomPJSUA2.hpp */,
+				6F6F15A62A25E69500DB8376 /* wrapper.mm */,
+				6F6F15A42A25E68800DB8376 /* wrapper.h */,
+				6F6F15A52A25E69400DB8376 /* IosPJ-Bridging-Header.h */,
+				6F6F16072A26CB8300DB8376 /* Register.swift */,
+			);
+			path = PJ;
+			sourceTree = "<group>";
+		};
 		972B3696FDC6C2CF583FAA39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6F6F15832A25E00300DB8376 /* libcrypto.a */,
-				6F6F157C2A25E00100DB8376 /* libg7221codec.a */,
-				6F6F158A2A25E00500DB8376 /* libgsmcodec.a */,
-				6F6F15892A25E00500DB8376 /* libilbccodec.a */,
-				6F6F157A2A25E00000DB8376 /* libpj.a */,
-				6F6F15872A25E00400DB8376 /* libpjlib-util.a */,
-				6F6F15792A25E00000DB8376 /* libpjmedia-audiodev.a */,
-				6F6F157F2A25E00200DB8376 /* libpjmedia-codec.a */,
-				6F6F15882A25E00500DB8376 /* libpjmedia-videodev.a */,
-				6F6F157B2A25E00100DB8376 /* libpjmedia.a */,
-				6F6F15782A25E00000DB8376 /* libpjnath.a */,
-				6F6F15762A25DFFF00DB8376 /* libpjsdp.a */,
-				6F6F15742A25DFFF00DB8376 /* libpjsip-simple.a */,
-				6F6F15842A25E00400DB8376 /* libpjsip-ua.a */,
-				6F6F15852A25E00400DB8376 /* libpjsip.a */,
-				6F6F15752A25DFFF00DB8376 /* libpjsua.a */,
-				6F6F15862A25E00400DB8376 /* libpjsua2.a */,
-				6F6F157D2A25E00100DB8376 /* libresample.a */,
-				6F6F15802A25E00200DB8376 /* libspeex.a */,
-				6F6F15772A25E00000DB8376 /* libsrtp.a */,
-				6F6F157E2A25E00200DB8376 /* libssl.a */,
-				6F6F15812A25E00300DB8376 /* libwebrtc.a */,
-				6F6F15822A25E00300DB8376 /* libyuv.a */,
+				6F6F15EB2A26CA8600DB8376 /* libcrypto.a */,
+				6F6F15E12A26CA8300DB8376 /* libg7221codec.a */,
+				6F6F15DC2A26CA8100DB8376 /* libgsmcodec.a */,
+				6F6F15DF2A26CA8200DB8376 /* libilbccodec.a */,
+				6F6F15EF2A26CA8700DB8376 /* libpj.a */,
+				6F6F15D92A26CA8000DB8376 /* libpjlib-util.a */,
+				6F6F15EE2A26CA8700DB8376 /* libpjmedia-audiodev.a */,
+				6F6F15DE2A26CA8200DB8376 /* libpjmedia-codec.a */,
+				6F6F15EC2A26CA8600DB8376 /* libpjmedia-videodev.a */,
+				6F6F15E52A26CA8400DB8376 /* libpjmedia.a */,
+				6F6F15DB2A26CA8100DB8376 /* libpjnath.a */,
+				6F6F15E02A26CA8200DB8376 /* libpjsdp.a */,
+				6F6F15ED2A26CA8600DB8376 /* libpjsip-simple.a */,
+				6F6F15E22A26CA8300DB8376 /* libpjsip-ua.a */,
+				6F6F15E82A26CA8500DB8376 /* libpjsip.a */,
+				6F6F15DD2A26CA8100DB8376 /* libpjsua.a */,
+				6F6F15E92A26CA8500DB8376 /* libpjsua2.a */,
+				6F6F15E32A26CA8300DB8376 /* libresample.a */,
+				6F6F15E72A26CA8400DB8376 /* libspeex.a */,
+				6F6F15E62A26CA8400DB8376 /* libsrtp.a */,
+				6F6F15EA2A26CA8500DB8376 /* libssl.a */,
+				6F6F15DA2A26CA8000DB8376 /* libwebrtc.a */,
+				6F6F15E42A26CA8300DB8376 /* libyuv.a */,
 				6F6F15722A25DED800DB8376 /* Foundation.framework */,
 				6F6F15702A25DECC00DB8376 /* AVFoundation.framework */,
 				6F6F156E2A25DEC100DB8376 /* AudioToolbox.framework */,
@@ -228,6 +251,7 @@
 				TargetAttributes = {
 					6F6F15562A257CC700DB8376 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -292,9 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6F16082A26CB8300DB8376 /* Register.swift in Sources */,
+				6F6F15AA2A25E71200DB8376 /* CustomPJSUA2.cpp in Sources */,
 				6F6F155F2A257CC700DB8376 /* ViewController.swift in Sources */,
 				6F6F155B2A257CC700DB8376 /* AppDelegate.swift in Sources */,
 				6F6F155D2A257CC700DB8376 /* SceneDelegate.swift in Sources */,
+				6F6F15A72A25E69500DB8376 /* wrapper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,17 +467,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RNBPYJU3P2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PJ_AUTOCONF=1",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../pjlib/include\"",
-					"$(SRCROOT)/../../pjlib-util/include",
-					"$(SRCROOT)/../../pjmedia/include",
-					"$(SRCROOT)/../../pjnath/include",
-					"$(SRCROOT)/../../pjsip/include",
-					"$(SRCROOT)/../../third_party/include",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjlib/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjlib-util/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjmedia/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjnath/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjsip/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/third_party/include\"",
 				);
 				INFOPLIST_FILE = IosPJ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -462,11 +495,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries",
+					"$(PROJECT_DIR)/Libraries",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.young.IosPJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "IosPJ/PJ/IosPJ-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -478,17 +516,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RNBPYJU3P2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PJ_AUTOCONF=1",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../pjlib/include\"",
-					"$(SRCROOT)/../../pjlib-util/include",
-					"$(SRCROOT)/../../pjmedia/include",
-					"$(SRCROOT)/../../pjnath/include",
-					"$(SRCROOT)/../../pjsip/include",
-					"$(SRCROOT)/../../third_party/include",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjlib/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjlib-util/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjmedia/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjnath/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/pjsip/include\"",
+					"\"$(SRCROOT)/../../Libraries/pjproject-2.13/third_party/include\"",
 				);
 				INFOPLIST_FILE = IosPJ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -500,11 +544,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Libraries";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/Libraries",
+					"$(PROJECT_DIR)/Libraries",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.young.IosPJ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "IosPJ/PJ/IosPJ-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

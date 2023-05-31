@@ -61,7 +61,9 @@ class ViewController: UIViewController {
     }
     @IBAction func startRegistration(_ sender: UIButton) {
         print("startRegistration")
+        print("\(CPPWrapper().registerStateInfoWrapper())")
         setRegistrationVisibility(registered: true)
+        Register().test()
     }
     @IBAction func stopRegistration(_ sender: UIButton) {
         print("stopRegistration")
