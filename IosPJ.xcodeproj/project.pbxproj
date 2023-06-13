@@ -31,8 +31,6 @@
 		6F6F156F2A25DEC100DB8376 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F156E2A25DEC100DB8376 /* AudioToolbox.framework */; };
 		6F6F15712A25DECD00DB8376 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15702A25DECC00DB8376 /* AVFoundation.framework */; };
 		6F6F15732A25DED800DB8376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15722A25DED800DB8376 /* Foundation.framework */; };
-		6F6F15A72A25E69500DB8376 /* wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F15A62A25E69500DB8376 /* wrapper.mm */; };
-		6F6F15AA2A25E71200DB8376 /* CustomPJSUA2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */; };
 		6F6F16082A26CB8300DB8376 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F16072A26CB8300DB8376 /* Register.swift */; };
 		6F6F160A2A26CFA500DB8376 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F16092A26CFA500DB8376 /* Call.swift */; };
 		6F6F16222A29AB0400DB8376 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F160C2A29AAF700DB8376 /* libcrypto.a */; };
@@ -91,11 +89,7 @@
 		6F6F156E2A25DEC100DB8376 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		6F6F15702A25DECC00DB8376 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6F6F15722A25DED800DB8376 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		6F6F15A42A25E68800DB8376 /* wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wrapper.h; sourceTree = "<group>"; };
 		6F6F15A52A25E69400DB8376 /* IosPJ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IosPJ-Bridging-Header.h"; sourceTree = "<group>"; };
-		6F6F15A62A25E69500DB8376 /* wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wrapper.mm; sourceTree = "<group>"; };
-		6F6F15A82A25E71200DB8376 /* CustomPJSUA2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CustomPJSUA2.hpp; sourceTree = "<group>"; };
-		6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomPJSUA2.cpp; sourceTree = "<group>"; };
 		6F6F16072A26CB8300DB8376 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		6F6F16092A26CFA500DB8376 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		6F6F160B2A29AAF600DB8376 /* libpjmedia-codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec.a"; path = "Libraries/libpjmedia-codec.a"; sourceTree = "<group>"; };
@@ -234,10 +228,6 @@
 		6F6F15A22A25E56900DB8376 /* PJ */ = {
 			isa = PBXGroup;
 			children = (
-				6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */,
-				6F6F15A82A25E71200DB8376 /* CustomPJSUA2.hpp */,
-				6F6F15A62A25E69500DB8376 /* wrapper.mm */,
-				6F6F15A42A25E68800DB8376 /* wrapper.h */,
 				6F6F15A52A25E69400DB8376 /* IosPJ-Bridging-Header.h */,
 				6F09F4892A36AF02007A7824 /* Buddy.swift */,
 				6F6F16092A26CFA500DB8376 /* Call.swift */,
@@ -393,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F6F16082A26CB8300DB8376 /* Register.swift in Sources */,
-				6F6F15AA2A25E71200DB8376 /* CustomPJSUA2.cpp in Sources */,
 				6F6F155F2A257CC700DB8376 /* ViewController.swift in Sources */,
 				6F09F4912A36F821007A7824 /* CallManager.swift in Sources */,
 				6F0B9E8B2A32B57C00E8B9B4 /* RegistrationModel.swift in Sources */,
@@ -412,7 +401,6 @@
 				6F0B9E832A31C3F400E8B9B4 /* OutgoingViewController.swift in Sources */,
 				6F09F48F2A36F0FB007A7824 /* Config.swift in Sources */,
 				6F09F4932A370022007A7824 /* MessageModel.swift in Sources */,
-				6F6F15A72A25E69500DB8376 /* wrapper.mm in Sources */,
 				6F0B9E8D2A32B5F200E8B9B4 /* CallModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
