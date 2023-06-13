@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F09F48A2A36AF03007A7824 /* Buddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09F4892A36AF02007A7824 /* Buddy.swift */; };
+		6F09F48D2A36ED8F007A7824 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09F48C2A36ED8F007A7824 /* NetworkReachability.swift */; };
+		6F09F48F2A36F0FB007A7824 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09F48E2A36F0FB007A7824 /* Config.swift */; };
+		6F09F4912A36F821007A7824 /* CallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09F4902A36F821007A7824 /* CallManager.swift */; };
+		6F09F4932A370022007A7824 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F09F4922A370022007A7824 /* MessageModel.swift */; };
+		6F0B9E782A2DC89E00E8B9B4 /* PJManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E772A2DC89E00E8B9B4 /* PJManager.mm */; };
+		6F0B9E7E2A2DD68F00E8B9B4 /* UserAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E7C2A2DD68F00E8B9B4 /* UserAgent.cpp */; };
+		6F0B9E832A31C3F400E8B9B4 /* OutgoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E822A31C3F400E8B9B4 /* OutgoingViewController.swift */; };
+		6F0B9E852A31C44300E8B9B4 /* IncomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E842A31C44300E8B9B4 /* IncomingViewController.swift */; };
+		6F0B9E882A32B50400E8B9B4 /* RegistrationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E872A32B50400E8B9B4 /* RegistrationObserver.swift */; };
+		6F0B9E8B2A32B57C00E8B9B4 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E8A2A32B57C00E8B9B4 /* RegistrationModel.swift */; };
+		6F0B9E8D2A32B5F200E8B9B4 /* CallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E8C2A32B5F200E8B9B4 /* CallModel.swift */; };
+		6F0B9E8F2A32BC0D00E8B9B4 /* CallObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E8E2A32BC0D00E8B9B4 /* CallObserver.swift */; };
+		6F0B9E912A32BC8C00E8B9B4 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E902A32BC8C00E8B9B4 /* Publisher.swift */; };
+		6F0B9E932A32BD8300E8B9B4 /* PublisherImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E922A32BD8300E8B9B4 /* PublisherImpl.swift */; };
 		6F6F155B2A257CC700DB8376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F155A2A257CC700DB8376 /* AppDelegate.swift */; };
 		6F6F155D2A257CC700DB8376 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F155C2A257CC700DB8376 /* SceneDelegate.swift */; };
 		6F6F155F2A257CC700DB8376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F155E2A257CC700DB8376 /* ViewController.swift */; };
@@ -18,35 +33,53 @@
 		6F6F15732A25DED800DB8376 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15722A25DED800DB8376 /* Foundation.framework */; };
 		6F6F15A72A25E69500DB8376 /* wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F15A62A25E69500DB8376 /* wrapper.mm */; };
 		6F6F15AA2A25E71200DB8376 /* CustomPJSUA2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */; };
-		6F6F15F02A26CA8E00DB8376 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EB2A26CA8600DB8376 /* libcrypto.a */; };
-		6F6F15F12A26CA8E00DB8376 /* libg7221codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E12A26CA8300DB8376 /* libg7221codec.a */; };
-		6F6F15F22A26CA8F00DB8376 /* libgsmcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DC2A26CA8100DB8376 /* libgsmcodec.a */; };
-		6F6F15F32A26CA9000DB8376 /* libilbccodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DF2A26CA8200DB8376 /* libilbccodec.a */; };
-		6F6F15F42A26CA9100DB8376 /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EF2A26CA8700DB8376 /* libpj.a */; };
-		6F6F15F52A26CA9100DB8376 /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15D92A26CA8000DB8376 /* libpjlib-util.a */; };
-		6F6F15F62A26CA9200DB8376 /* libpjmedia-audiodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EE2A26CA8700DB8376 /* libpjmedia-audiodev.a */; };
-		6F6F15F72A26CA9400DB8376 /* libpjmedia-codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DE2A26CA8200DB8376 /* libpjmedia-codec.a */; };
-		6F6F15F82A26CA9500DB8376 /* libpjmedia-videodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EC2A26CA8600DB8376 /* libpjmedia-videodev.a */; };
-		6F6F15F92A26CA9600DB8376 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E52A26CA8400DB8376 /* libpjmedia.a */; };
-		6F6F15FA2A26CA9700DB8376 /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DB2A26CA8100DB8376 /* libpjnath.a */; };
-		6F6F15FB2A26CA9900DB8376 /* libpjsdp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E02A26CA8200DB8376 /* libpjsdp.a */; };
-		6F6F15FC2A26CA9A00DB8376 /* libpjsip-simple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15ED2A26CA8600DB8376 /* libpjsip-simple.a */; };
-		6F6F15FD2A26CA9C00DB8376 /* libpjsip-ua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E22A26CA8300DB8376 /* libpjsip-ua.a */; };
-		6F6F15FE2A26CA9E00DB8376 /* libpjsip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E82A26CA8500DB8376 /* libpjsip.a */; };
-		6F6F15FF2A26CA9F00DB8376 /* libpjsua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DD2A26CA8100DB8376 /* libpjsua.a */; };
-		6F6F16002A26CAA100DB8376 /* libpjsua2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E92A26CA8500DB8376 /* libpjsua2.a */; };
-		6F6F16012A26CAA300DB8376 /* libresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E32A26CA8300DB8376 /* libresample.a */; };
-		6F6F16022A26CAA500DB8376 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E72A26CA8400DB8376 /* libspeex.a */; };
-		6F6F16032A26CAA800DB8376 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E62A26CA8400DB8376 /* libsrtp.a */; };
-		6F6F16042A26CAAA00DB8376 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15EA2A26CA8500DB8376 /* libssl.a */; };
-		6F6F16052A26CAAC00DB8376 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15DA2A26CA8000DB8376 /* libwebrtc.a */; };
-		6F6F16062A26CAAE00DB8376 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F15E42A26CA8300DB8376 /* libyuv.a */; };
 		6F6F16082A26CB8300DB8376 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F16072A26CB8300DB8376 /* Register.swift */; };
+		6F6F160A2A26CFA500DB8376 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6F16092A26CFA500DB8376 /* Call.swift */; };
+		6F6F16222A29AB0400DB8376 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F160C2A29AAF700DB8376 /* libcrypto.a */; };
+		6F6F16232A29AB0400DB8376 /* libg7221codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F160F2A29AAF800DB8376 /* libg7221codec.a */; };
+		6F6F16242A29AB0400DB8376 /* libgsmcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16182A29AAFA00DB8376 /* libgsmcodec.a */; };
+		6F6F16252A29AB0400DB8376 /* libilbccodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16122A29AAF900DB8376 /* libilbccodec.a */; };
+		6F6F16262A29AB0500DB8376 /* libpj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F160E2A29AAF700DB8376 /* libpj.a */; };
+		6F6F16272A29AB0500DB8376 /* libpjlib-util.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F161D2A29AAFC00DB8376 /* libpjlib-util.a */; };
+		6F6F16282A29AB0500DB8376 /* libpjmedia-audiodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F161C2A29AAFC00DB8376 /* libpjmedia-audiodev.a */; };
+		6F6F16292A29AB0600DB8376 /* libpjmedia-codec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F160B2A29AAF600DB8376 /* libpjmedia-codec.a */; };
+		6F6F162A2A29AB0600DB8376 /* libpjmedia-videodev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16132A29AAF900DB8376 /* libpjmedia-videodev.a */; };
+		6F6F162B2A29AB0600DB8376 /* libpjmedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16152A29AAF900DB8376 /* libpjmedia.a */; };
+		6F6F162C2A29AB0700DB8376 /* libpjnath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F161E2A29AAFC00DB8376 /* libpjnath.a */; };
+		6F6F162D2A29AB0700DB8376 /* libpjsdp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F161B2A29AAFB00DB8376 /* libpjsdp.a */; };
+		6F6F162E2A29AB0800DB8376 /* libpjsip-simple.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16192A29AAFB00DB8376 /* libpjsip-simple.a */; };
+		6F6F162F2A29AB0800DB8376 /* libpjsip-ua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F161A2A29AAFB00DB8376 /* libpjsip-ua.a */; };
+		6F6F16302A29AB0900DB8376 /* libpjsip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16102A29AAF800DB8376 /* libpjsip.a */; };
+		6F6F16312A29AB0A00DB8376 /* libpjsua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16172A29AAFA00DB8376 /* libpjsua.a */; };
+		6F6F16322A29AB0A00DB8376 /* libpjsua2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F161F2A29AAFD00DB8376 /* libpjsua2.a */; };
+		6F6F16332A29AB0B00DB8376 /* libresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16202A29AAFD00DB8376 /* libresample.a */; };
+		6F6F16342A29AB0B00DB8376 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16142A29AAF900DB8376 /* libspeex.a */; };
+		6F6F16352A29AB0C00DB8376 /* libsrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16162A29AAFA00DB8376 /* libsrtp.a */; };
+		6F6F16362A29AB0D00DB8376 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16212A29AAFD00DB8376 /* libssl.a */; };
+		6F6F16372A29AB0E00DB8376 /* libwebrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F16112A29AAF800DB8376 /* libwebrtc.a */; };
+		6F6F16382A29AB0E00DB8376 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F6F160D2A29AAF700DB8376 /* libyuv.a */; };
 		D99D4FDEECB83DAED7B9BCB7 /* Pods_IosPJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F0A17C16C3C31D113C8AFE /* Pods_IosPJ.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		32F0A17C16C3C31D113C8AFE /* Pods_IosPJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IosPJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F09F4892A36AF02007A7824 /* Buddy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buddy.swift; sourceTree = "<group>"; };
+		6F09F48C2A36ED8F007A7824 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		6F09F48E2A36F0FB007A7824 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		6F09F4902A36F821007A7824 /* CallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallManager.swift; sourceTree = "<group>"; };
+		6F09F4922A370022007A7824 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		6F0B9E6C2A2DA43D00E8B9B4 /* PJManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PJManager.h; sourceTree = "<group>"; };
+		6F0B9E772A2DC89E00E8B9B4 /* PJManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PJManager.mm; sourceTree = "<group>"; };
+		6F0B9E7C2A2DD68F00E8B9B4 /* UserAgent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UserAgent.cpp; sourceTree = "<group>"; };
+		6F0B9E7D2A2DD68F00E8B9B4 /* UserAgent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UserAgent.hpp; sourceTree = "<group>"; };
+		6F0B9E822A31C3F400E8B9B4 /* OutgoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingViewController.swift; sourceTree = "<group>"; };
+		6F0B9E842A31C44300E8B9B4 /* IncomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingViewController.swift; sourceTree = "<group>"; };
+		6F0B9E872A32B50400E8B9B4 /* RegistrationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationObserver.swift; sourceTree = "<group>"; };
+		6F0B9E8A2A32B57C00E8B9B4 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		6F0B9E8C2A32B5F200E8B9B4 /* CallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallModel.swift; sourceTree = "<group>"; };
+		6F0B9E8E2A32BC0D00E8B9B4 /* CallObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallObserver.swift; sourceTree = "<group>"; };
+		6F0B9E902A32BC8C00E8B9B4 /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		6F0B9E922A32BD8300E8B9B4 /* PublisherImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherImpl.swift; sourceTree = "<group>"; };
 		6F6F15572A257CC700DB8376 /* IosPJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosPJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F6F155A2A257CC700DB8376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F6F155C2A257CC700DB8376 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,30 +96,31 @@
 		6F6F15A62A25E69500DB8376 /* wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wrapper.mm; sourceTree = "<group>"; };
 		6F6F15A82A25E71200DB8376 /* CustomPJSUA2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CustomPJSUA2.hpp; sourceTree = "<group>"; };
 		6F6F15A92A25E71200DB8376 /* CustomPJSUA2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomPJSUA2.cpp; sourceTree = "<group>"; };
-		6F6F15D92A26CA8000DB8376 /* libpjlib-util.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util.a"; path = "Libraries/libpjlib-util.a"; sourceTree = "<group>"; };
-		6F6F15DA2A26CA8000DB8376 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebrtc.a; path = Libraries/libwebrtc.a; sourceTree = "<group>"; };
-		6F6F15DB2A26CA8100DB8376 /* libpjnath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjnath.a; path = Libraries/libpjnath.a; sourceTree = "<group>"; };
-		6F6F15DC2A26CA8100DB8376 /* libgsmcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsmcodec.a; path = Libraries/libgsmcodec.a; sourceTree = "<group>"; };
-		6F6F15DD2A26CA8100DB8376 /* libpjsua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua.a; path = Libraries/libpjsua.a; sourceTree = "<group>"; };
-		6F6F15DE2A26CA8200DB8376 /* libpjmedia-codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec.a"; path = "Libraries/libpjmedia-codec.a"; sourceTree = "<group>"; };
-		6F6F15DF2A26CA8200DB8376 /* libilbccodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libilbccodec.a; path = Libraries/libilbccodec.a; sourceTree = "<group>"; };
-		6F6F15E02A26CA8200DB8376 /* libpjsdp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsdp.a; path = Libraries/libpjsdp.a; sourceTree = "<group>"; };
-		6F6F15E12A26CA8300DB8376 /* libg7221codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg7221codec.a; path = Libraries/libg7221codec.a; sourceTree = "<group>"; };
-		6F6F15E22A26CA8300DB8376 /* libpjsip-ua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-ua.a"; path = "Libraries/libpjsip-ua.a"; sourceTree = "<group>"; };
-		6F6F15E32A26CA8300DB8376 /* libresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libresample.a; path = Libraries/libresample.a; sourceTree = "<group>"; };
-		6F6F15E42A26CA8300DB8376 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyuv.a; path = Libraries/libyuv.a; sourceTree = "<group>"; };
-		6F6F15E52A26CA8400DB8376 /* libpjmedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjmedia.a; path = Libraries/libpjmedia.a; sourceTree = "<group>"; };
-		6F6F15E62A26CA8400DB8376 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = Libraries/libsrtp.a; sourceTree = "<group>"; };
-		6F6F15E72A26CA8400DB8376 /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeex.a; path = Libraries/libspeex.a; sourceTree = "<group>"; };
-		6F6F15E82A26CA8500DB8376 /* libpjsip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsip.a; path = Libraries/libpjsip.a; sourceTree = "<group>"; };
-		6F6F15E92A26CA8500DB8376 /* libpjsua2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua2.a; path = Libraries/libpjsua2.a; sourceTree = "<group>"; };
-		6F6F15EA2A26CA8500DB8376 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Libraries/libssl.a; sourceTree = "<group>"; };
-		6F6F15EB2A26CA8600DB8376 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Libraries/libcrypto.a; sourceTree = "<group>"; };
-		6F6F15EC2A26CA8600DB8376 /* libpjmedia-videodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-videodev.a"; path = "Libraries/libpjmedia-videodev.a"; sourceTree = "<group>"; };
-		6F6F15ED2A26CA8600DB8376 /* libpjsip-simple.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-simple.a"; path = "Libraries/libpjsip-simple.a"; sourceTree = "<group>"; };
-		6F6F15EE2A26CA8700DB8376 /* libpjmedia-audiodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-audiodev.a"; path = "Libraries/libpjmedia-audiodev.a"; sourceTree = "<group>"; };
-		6F6F15EF2A26CA8700DB8376 /* libpj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpj.a; path = Libraries/libpj.a; sourceTree = "<group>"; };
 		6F6F16072A26CB8300DB8376 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		6F6F16092A26CFA500DB8376 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		6F6F160B2A29AAF600DB8376 /* libpjmedia-codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-codec.a"; path = "Libraries/libpjmedia-codec.a"; sourceTree = "<group>"; };
+		6F6F160C2A29AAF700DB8376 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = Libraries/libcrypto.a; sourceTree = "<group>"; };
+		6F6F160D2A29AAF700DB8376 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyuv.a; path = Libraries/libyuv.a; sourceTree = "<group>"; };
+		6F6F160E2A29AAF700DB8376 /* libpj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpj.a; path = Libraries/libpj.a; sourceTree = "<group>"; };
+		6F6F160F2A29AAF800DB8376 /* libg7221codec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libg7221codec.a; path = Libraries/libg7221codec.a; sourceTree = "<group>"; };
+		6F6F16102A29AAF800DB8376 /* libpjsip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsip.a; path = Libraries/libpjsip.a; sourceTree = "<group>"; };
+		6F6F16112A29AAF800DB8376 /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebrtc.a; path = Libraries/libwebrtc.a; sourceTree = "<group>"; };
+		6F6F16122A29AAF900DB8376 /* libilbccodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libilbccodec.a; path = Libraries/libilbccodec.a; sourceTree = "<group>"; };
+		6F6F16132A29AAF900DB8376 /* libpjmedia-videodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-videodev.a"; path = "Libraries/libpjmedia-videodev.a"; sourceTree = "<group>"; };
+		6F6F16142A29AAF900DB8376 /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeex.a; path = Libraries/libspeex.a; sourceTree = "<group>"; };
+		6F6F16152A29AAF900DB8376 /* libpjmedia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjmedia.a; path = Libraries/libpjmedia.a; sourceTree = "<group>"; };
+		6F6F16162A29AAFA00DB8376 /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsrtp.a; path = Libraries/libsrtp.a; sourceTree = "<group>"; };
+		6F6F16172A29AAFA00DB8376 /* libpjsua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua.a; path = Libraries/libpjsua.a; sourceTree = "<group>"; };
+		6F6F16182A29AAFA00DB8376 /* libgsmcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgsmcodec.a; path = Libraries/libgsmcodec.a; sourceTree = "<group>"; };
+		6F6F16192A29AAFB00DB8376 /* libpjsip-simple.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-simple.a"; path = "Libraries/libpjsip-simple.a"; sourceTree = "<group>"; };
+		6F6F161A2A29AAFB00DB8376 /* libpjsip-ua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjsip-ua.a"; path = "Libraries/libpjsip-ua.a"; sourceTree = "<group>"; };
+		6F6F161B2A29AAFB00DB8376 /* libpjsdp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsdp.a; path = Libraries/libpjsdp.a; sourceTree = "<group>"; };
+		6F6F161C2A29AAFC00DB8376 /* libpjmedia-audiodev.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjmedia-audiodev.a"; path = "Libraries/libpjmedia-audiodev.a"; sourceTree = "<group>"; };
+		6F6F161D2A29AAFC00DB8376 /* libpjlib-util.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libpjlib-util.a"; path = "Libraries/libpjlib-util.a"; sourceTree = "<group>"; };
+		6F6F161E2A29AAFC00DB8376 /* libpjnath.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjnath.a; path = Libraries/libpjnath.a; sourceTree = "<group>"; };
+		6F6F161F2A29AAFD00DB8376 /* libpjsua2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpjsua2.a; path = Libraries/libpjsua2.a; sourceTree = "<group>"; };
+		6F6F16202A29AAFD00DB8376 /* libresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libresample.a; path = Libraries/libresample.a; sourceTree = "<group>"; };
+		6F6F16212A29AAFD00DB8376 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = Libraries/libssl.a; sourceTree = "<group>"; };
 		74EF4F7EB8EF398514421CDB /* Pods-IosPJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosPJ.release.xcconfig"; path = "Target Support Files/Pods-IosPJ/Pods-IosPJ.release.xcconfig"; sourceTree = "<group>"; };
 		F3AA54520CB26FB445110D63 /* Pods-IosPJ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosPJ.debug.xcconfig"; path = "Target Support Files/Pods-IosPJ/Pods-IosPJ.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,39 +130,69 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F6F16062A26CAAE00DB8376 /* libyuv.a in Frameworks */,
-				6F6F15F62A26CA9200DB8376 /* libpjmedia-audiodev.a in Frameworks */,
-				6F6F15FB2A26CA9900DB8376 /* libpjsdp.a in Frameworks */,
+				6F6F16382A29AB0E00DB8376 /* libyuv.a in Frameworks */,
+				6F6F16282A29AB0500DB8376 /* libpjmedia-audiodev.a in Frameworks */,
+				6F6F162D2A29AB0700DB8376 /* libpjsdp.a in Frameworks */,
 				D99D4FDEECB83DAED7B9BCB7 /* Pods_IosPJ.framework in Frameworks */,
-				6F6F15F82A26CA9500DB8376 /* libpjmedia-videodev.a in Frameworks */,
-				6F6F16022A26CAA500DB8376 /* libspeex.a in Frameworks */,
-				6F6F15F02A26CA8E00DB8376 /* libcrypto.a in Frameworks */,
-				6F6F15F12A26CA8E00DB8376 /* libg7221codec.a in Frameworks */,
+				6F6F162A2A29AB0600DB8376 /* libpjmedia-videodev.a in Frameworks */,
+				6F6F16342A29AB0B00DB8376 /* libspeex.a in Frameworks */,
+				6F6F16222A29AB0400DB8376 /* libcrypto.a in Frameworks */,
+				6F6F16232A29AB0400DB8376 /* libg7221codec.a in Frameworks */,
 				6F6F156F2A25DEC100DB8376 /* AudioToolbox.framework in Frameworks */,
-				6F6F16032A26CAA800DB8376 /* libsrtp.a in Frameworks */,
-				6F6F16002A26CAA100DB8376 /* libpjsua2.a in Frameworks */,
-				6F6F16052A26CAAC00DB8376 /* libwebrtc.a in Frameworks */,
-				6F6F16042A26CAAA00DB8376 /* libssl.a in Frameworks */,
-				6F6F15F92A26CA9600DB8376 /* libpjmedia.a in Frameworks */,
-				6F6F15FA2A26CA9700DB8376 /* libpjnath.a in Frameworks */,
-				6F6F15F32A26CA9000DB8376 /* libilbccodec.a in Frameworks */,
+				6F6F16352A29AB0C00DB8376 /* libsrtp.a in Frameworks */,
+				6F6F16322A29AB0A00DB8376 /* libpjsua2.a in Frameworks */,
+				6F6F16372A29AB0E00DB8376 /* libwebrtc.a in Frameworks */,
+				6F6F16362A29AB0D00DB8376 /* libssl.a in Frameworks */,
+				6F6F162B2A29AB0600DB8376 /* libpjmedia.a in Frameworks */,
+				6F6F162C2A29AB0700DB8376 /* libpjnath.a in Frameworks */,
+				6F6F16252A29AB0400DB8376 /* libilbccodec.a in Frameworks */,
 				6F6F15712A25DECD00DB8376 /* AVFoundation.framework in Frameworks */,
-				6F6F16012A26CAA300DB8376 /* libresample.a in Frameworks */,
-				6F6F15FF2A26CA9F00DB8376 /* libpjsua.a in Frameworks */,
-				6F6F15F42A26CA9100DB8376 /* libpj.a in Frameworks */,
-				6F6F15F22A26CA8F00DB8376 /* libgsmcodec.a in Frameworks */,
-				6F6F15F72A26CA9400DB8376 /* libpjmedia-codec.a in Frameworks */,
-				6F6F15FC2A26CA9A00DB8376 /* libpjsip-simple.a in Frameworks */,
+				6F6F16332A29AB0B00DB8376 /* libresample.a in Frameworks */,
+				6F6F16312A29AB0A00DB8376 /* libpjsua.a in Frameworks */,
+				6F6F16262A29AB0500DB8376 /* libpj.a in Frameworks */,
+				6F6F16242A29AB0400DB8376 /* libgsmcodec.a in Frameworks */,
+				6F6F16292A29AB0600DB8376 /* libpjmedia-codec.a in Frameworks */,
+				6F6F162E2A29AB0800DB8376 /* libpjsip-simple.a in Frameworks */,
 				6F6F15732A25DED800DB8376 /* Foundation.framework in Frameworks */,
-				6F6F15FE2A26CA9E00DB8376 /* libpjsip.a in Frameworks */,
-				6F6F15FD2A26CA9C00DB8376 /* libpjsip-ua.a in Frameworks */,
-				6F6F15F52A26CA9100DB8376 /* libpjlib-util.a in Frameworks */,
+				6F6F16302A29AB0900DB8376 /* libpjsip.a in Frameworks */,
+				6F6F162F2A29AB0800DB8376 /* libpjsip-ua.a in Frameworks */,
+				6F6F16272A29AB0500DB8376 /* libpjlib-util.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F09F48B2A36ED77007A7824 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6F09F48C2A36ED8F007A7824 /* NetworkReachability.swift */,
+				6F09F48E2A36F0FB007A7824 /* Config.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		6F0B9E862A32AB6900E8B9B4 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				6F0B9E872A32B50400E8B9B4 /* RegistrationObserver.swift */,
+				6F0B9E8E2A32BC0D00E8B9B4 /* CallObserver.swift */,
+				6F0B9E902A32BC8C00E8B9B4 /* Publisher.swift */,
+				6F0B9E922A32BD8300E8B9B4 /* PublisherImpl.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		6F0B9E892A32B56400E8B9B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F0B9E8A2A32B57C00E8B9B4 /* RegistrationModel.swift */,
+				6F0B9E8C2A32B5F200E8B9B4 /* CallModel.swift */,
+				6F09F4922A370022007A7824 /* MessageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6F6F154E2A257CC700DB8376 = {
 			isa = PBXGroup;
 			children = (
@@ -150,10 +214,15 @@
 		6F6F15592A257CC700DB8376 /* IosPJ */ = {
 			isa = PBXGroup;
 			children = (
+				6F09F48B2A36ED77007A7824 /* Util */,
+				6F0B9E892A32B56400E8B9B4 /* Model */,
+				6F0B9E862A32AB6900E8B9B4 /* Observer */,
 				6F6F15A22A25E56900DB8376 /* PJ */,
 				6F6F155A2A257CC700DB8376 /* AppDelegate.swift */,
 				6F6F155C2A257CC700DB8376 /* SceneDelegate.swift */,
 				6F6F155E2A257CC700DB8376 /* ViewController.swift */,
+				6F0B9E822A31C3F400E8B9B4 /* OutgoingViewController.swift */,
+				6F0B9E842A31C44300E8B9B4 /* IncomingViewController.swift */,
 				6F6F15602A257CC700DB8376 /* Main.storyboard */,
 				6F6F15632A257CC900DB8376 /* Assets.xcassets */,
 				6F6F15652A257CC900DB8376 /* LaunchScreen.storyboard */,
@@ -170,7 +239,14 @@
 				6F6F15A62A25E69500DB8376 /* wrapper.mm */,
 				6F6F15A42A25E68800DB8376 /* wrapper.h */,
 				6F6F15A52A25E69400DB8376 /* IosPJ-Bridging-Header.h */,
+				6F09F4892A36AF02007A7824 /* Buddy.swift */,
+				6F6F16092A26CFA500DB8376 /* Call.swift */,
 				6F6F16072A26CB8300DB8376 /* Register.swift */,
+				6F0B9E6C2A2DA43D00E8B9B4 /* PJManager.h */,
+				6F0B9E7D2A2DD68F00E8B9B4 /* UserAgent.hpp */,
+				6F0B9E772A2DC89E00E8B9B4 /* PJManager.mm */,
+				6F0B9E7C2A2DD68F00E8B9B4 /* UserAgent.cpp */,
+				6F09F4902A36F821007A7824 /* CallManager.swift */,
 			);
 			path = PJ;
 			sourceTree = "<group>";
@@ -178,29 +254,29 @@
 		972B3696FDC6C2CF583FAA39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6F6F15EB2A26CA8600DB8376 /* libcrypto.a */,
-				6F6F15E12A26CA8300DB8376 /* libg7221codec.a */,
-				6F6F15DC2A26CA8100DB8376 /* libgsmcodec.a */,
-				6F6F15DF2A26CA8200DB8376 /* libilbccodec.a */,
-				6F6F15EF2A26CA8700DB8376 /* libpj.a */,
-				6F6F15D92A26CA8000DB8376 /* libpjlib-util.a */,
-				6F6F15EE2A26CA8700DB8376 /* libpjmedia-audiodev.a */,
-				6F6F15DE2A26CA8200DB8376 /* libpjmedia-codec.a */,
-				6F6F15EC2A26CA8600DB8376 /* libpjmedia-videodev.a */,
-				6F6F15E52A26CA8400DB8376 /* libpjmedia.a */,
-				6F6F15DB2A26CA8100DB8376 /* libpjnath.a */,
-				6F6F15E02A26CA8200DB8376 /* libpjsdp.a */,
-				6F6F15ED2A26CA8600DB8376 /* libpjsip-simple.a */,
-				6F6F15E22A26CA8300DB8376 /* libpjsip-ua.a */,
-				6F6F15E82A26CA8500DB8376 /* libpjsip.a */,
-				6F6F15DD2A26CA8100DB8376 /* libpjsua.a */,
-				6F6F15E92A26CA8500DB8376 /* libpjsua2.a */,
-				6F6F15E32A26CA8300DB8376 /* libresample.a */,
-				6F6F15E72A26CA8400DB8376 /* libspeex.a */,
-				6F6F15E62A26CA8400DB8376 /* libsrtp.a */,
-				6F6F15EA2A26CA8500DB8376 /* libssl.a */,
-				6F6F15DA2A26CA8000DB8376 /* libwebrtc.a */,
-				6F6F15E42A26CA8300DB8376 /* libyuv.a */,
+				6F6F160C2A29AAF700DB8376 /* libcrypto.a */,
+				6F6F160F2A29AAF800DB8376 /* libg7221codec.a */,
+				6F6F16182A29AAFA00DB8376 /* libgsmcodec.a */,
+				6F6F16122A29AAF900DB8376 /* libilbccodec.a */,
+				6F6F160E2A29AAF700DB8376 /* libpj.a */,
+				6F6F161D2A29AAFC00DB8376 /* libpjlib-util.a */,
+				6F6F161C2A29AAFC00DB8376 /* libpjmedia-audiodev.a */,
+				6F6F160B2A29AAF600DB8376 /* libpjmedia-codec.a */,
+				6F6F16132A29AAF900DB8376 /* libpjmedia-videodev.a */,
+				6F6F16152A29AAF900DB8376 /* libpjmedia.a */,
+				6F6F161E2A29AAFC00DB8376 /* libpjnath.a */,
+				6F6F161B2A29AAFB00DB8376 /* libpjsdp.a */,
+				6F6F16192A29AAFB00DB8376 /* libpjsip-simple.a */,
+				6F6F161A2A29AAFB00DB8376 /* libpjsip-ua.a */,
+				6F6F16102A29AAF800DB8376 /* libpjsip.a */,
+				6F6F16172A29AAFA00DB8376 /* libpjsua.a */,
+				6F6F161F2A29AAFD00DB8376 /* libpjsua2.a */,
+				6F6F16202A29AAFD00DB8376 /* libresample.a */,
+				6F6F16142A29AAF900DB8376 /* libspeex.a */,
+				6F6F16162A29AAFA00DB8376 /* libsrtp.a */,
+				6F6F16212A29AAFD00DB8376 /* libssl.a */,
+				6F6F16112A29AAF800DB8376 /* libwebrtc.a */,
+				6F6F160D2A29AAF700DB8376 /* libyuv.a */,
 				6F6F15722A25DED800DB8376 /* Foundation.framework */,
 				6F6F15702A25DECC00DB8376 /* AVFoundation.framework */,
 				6F6F156E2A25DEC100DB8376 /* AudioToolbox.framework */,
@@ -319,9 +395,25 @@
 				6F6F16082A26CB8300DB8376 /* Register.swift in Sources */,
 				6F6F15AA2A25E71200DB8376 /* CustomPJSUA2.cpp in Sources */,
 				6F6F155F2A257CC700DB8376 /* ViewController.swift in Sources */,
+				6F09F4912A36F821007A7824 /* CallManager.swift in Sources */,
+				6F0B9E8B2A32B57C00E8B9B4 /* RegistrationModel.swift in Sources */,
+				6F0B9E852A31C44300E8B9B4 /* IncomingViewController.swift in Sources */,
+				6F0B9E882A32B50400E8B9B4 /* RegistrationObserver.swift in Sources */,
+				6F0B9E8F2A32BC0D00E8B9B4 /* CallObserver.swift in Sources */,
+				6F09F48D2A36ED8F007A7824 /* NetworkReachability.swift in Sources */,
 				6F6F155B2A257CC700DB8376 /* AppDelegate.swift in Sources */,
+				6F0B9E932A32BD8300E8B9B4 /* PublisherImpl.swift in Sources */,
+				6F0B9E912A32BC8C00E8B9B4 /* Publisher.swift in Sources */,
+				6F09F48A2A36AF03007A7824 /* Buddy.swift in Sources */,
 				6F6F155D2A257CC700DB8376 /* SceneDelegate.swift in Sources */,
+				6F0B9E7E2A2DD68F00E8B9B4 /* UserAgent.cpp in Sources */,
+				6F0B9E782A2DC89E00E8B9B4 /* PJManager.mm in Sources */,
+				6F6F160A2A26CFA500DB8376 /* Call.swift in Sources */,
+				6F0B9E832A31C3F400E8B9B4 /* OutgoingViewController.swift in Sources */,
+				6F09F48F2A36F0FB007A7824 /* Config.swift in Sources */,
+				6F09F4932A370022007A7824 /* MessageModel.swift in Sources */,
 				6F6F15A72A25E69500DB8376 /* wrapper.mm in Sources */,
+				6F0B9E8D2A32B5F200E8B9B4 /* CallModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

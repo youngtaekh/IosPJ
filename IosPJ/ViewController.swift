@@ -8,8 +8,11 @@
 import UIKit
 import AVFAudio
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, RegistrationObserver, CallObserver {
+    private let TAG = "ViewController"
+    
     @IBOutlet weak var outbound: UITextField!
+    @IBOutlet weak var port: UITextField!
     @IBOutlet weak var id: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -25,19 +28,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var tvAnswer: UIButton!
     @IBOutlet weak var tvBusy: UIButton!
     @IBOutlet weak var tvDecline: UIButton!
+    @IBOutlet weak var tvRinging: UIButton!
     @IBOutlet weak var tvReInvite: UIButton!
     @IBOutlet weak var tvBye: UIButton!
     
-    private let ADDRESS = "sip.linphone.org"
-    private let PORT = "5061"
-    private let ID = "everareen"
-    private let PASSWORD = "lidue638"
-    private let COUNTERPART = "youngtaek.people"
+    @IBOutlet weak var tvMessage: UILabel!
+    @IBOutlet weak var etTo: UITextField!
+    @IBOutlet weak var etMessage: UITextField!
+    @IBOutlet weak var tvSend: UIButton!
     
-    private let OUTGOING = 0
-    private let INCOMING = 1
-    private let CONNECTED = 2
-    private let TERMINATED = 3
+    private var registered = false
+    
+    private var manager: CallManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,63 +47,169 @@ class ViewController: UIViewController {
         
         requestMicrophonePermission()
         
-        outbound.placeholder = "address:port"
+        PublisherImpl.instance.add(key: TAG, observer: self as RegistrationObserver)
+        PublisherImpl.instance.add(key: TAG, observer: self as CallObserver)
+        
+        manager = CallManager.getInstance()
+        
+        outbound.placeholder = "address"
+        port.placeholder = "port"
         id.placeholder = "id"
         password.placeholder = "password"
         etCounterpart.placeholder = "counterpart"
+        etTo.placeholder = "To"
+        etMessage.placeholder = "Message"
 
         password.isSecureTextEntry = true
 
-        outbound.text = "sip:\(ADDRESS):\(PORT)"
-        id.text = ID
-        password.text = PASSWORD
-        etCounterpart.text = COUNTERPART
+        outbound.text = Config.ADDRESS
+        port.text = Config.PORT
+        id.text = Config.ID
+        password.text = Config.PASSWORD
+        etCounterpart.text = Config.COUNTERPART
+        etTo.text = Config.COUNTERPART
+        etMessage.text = "Sample Message"
         
         setRegistrationVisibility(registered: false)
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        print("\(TAG) \(#function)")
+        PublisherImpl.instance.removeRegistrationObserver(key: TAG)
+        PublisherImpl.instance.removeCallObserver(key: TAG)
+    }
+
     @IBAction func startRegistration(_ sender: UIButton) {
         print("startRegistration")
-        print("\(CPPWrapper().registerStateInfoWrapper())")
-        setRegistrationVisibility(registered: true)
-        Register().test()
+        manager?.startRegistration(address: "\(outbound.text!):\(port.text!)", id: id.text!, pwd: password.text!, type: Config.TRANSPORT)
     }
     @IBAction func stopRegistration(_ sender: UIButton) {
         print("stopRegistration")
-        setRegistrationVisibility(registered: false)
+        manager?.stopRegistration()
     }
     @IBAction func refreshRegistration(_ sender: UIButton) {
         print("refreshRegistration")
-        setCallVisibility(state: INCOMING)
+        manager?.networkChanged()
     }
     @IBAction func startCall(_ sender: Any) {
-        print("startCall")
-        setCallVisibility(state: OUTGOING)
+        let callee = "sip:\(etCounterpart.text!)@\(outbound.text!)"
+        print("startCall to \(callee)")
+        manager?.startCall(counterpart: callee)
+        manager?.addCallListener()
     }
     @IBAction func updateCall(_ sender: Any) {
         print("updateCall")
+        manager?.updateCall()
     }
     @IBAction func cancelCall(_ sender: Any) {
         print("cancelCall")
-        setCallVisibility(state: TERMINATED)
+        manager?.cancelCall()
     }
     @IBAction func answerCall(_ sender: UIButton) {
         print("answerCall")
-        setCallVisibility(state: CONNECTED)
+        manager?.answerCall()
     }
     @IBAction func busyCall(_ sender: Any) {
         print("busyCall")
-        setCallVisibility(state: TERMINATED)
+        manager?.busyCall()
     }
     @IBAction func declineCall(_ sender: Any) {
         print("declineCall")
-        setCallVisibility(state: TERMINATED)
+        manager?.declineCall()
+    }
+    @IBAction func ringing(_ sender: Any) {
+        print("ringing")
+        manager?.ringingCall()
     }
     @IBAction func reInvite(_ sender: Any) {
         print("reInvite")
+        manager?.networkChanged()
     }
     @IBAction func byeCall(_ sender: Any) {
         print("byeCall")
-        setCallVisibility(state: TERMINATED)
+        manager?.byeCall()
+    }
+    @IBAction func sendMessage(_ sender: Any) {
+        print("sendMessage")
+        let to = "sip:\(etTo.text!)@\(outbound.text!)"
+        manager?.sendMessage(to: to, msg: etMessage.text!)
+    }
+    
+    func onRegistrationSuccess(model: RegistrationModel) {
+        print("\(TAG) \(#function)")
+        if (!manager!.registrationModel!.registered) {
+            manager!.registrationModel!.registered = true
+            setRegistrationVisibility(registered: true)
+        }
+    }
+    
+    func onRegistrationFailure(model: RegistrationModel) {
+        print("\(TAG) \(#function)")
+        if (manager!.registrationModel!.registered) {
+            manager!.registrationModel!.registered = false
+            setRegistrationVisibility(registered: false)
+        }
+    }
+    
+    func onUnRegistrationSuccess(model: RegistrationModel) {
+        print("\(TAG) \(#function)")
+        if (manager!.registrationModel!.registered) {
+            manager!.registrationModel!.registered = false
+            setRegistrationVisibility(registered: false)
+        }
+    }
+    
+    func onUnRegistrationFailure(model: RegistrationModel) {
+        print("\(TAG) \(#function)")
+    }
+    
+    func onInstantMessage(model: MessageModel) {
+        print("\(TAG) \(#function) message - \(model.message!)")
+        tvMessage.text = "\(model.from!) - \(model.message!)"
+    }
+    
+    func onIncomingCall(model: CallModel) {
+        print("\(TAG) \(#function)")
+        print("\(TAG) callModel is \(model)")
+        setCallVisibility(state: Config.INCOMING)
+    }
+    
+    func onOutgoingCall(model: CallModel) {
+        print("\(TAG) \(#function)")
+        print("\(TAG) callModel is \(model)")
+        setCallVisibility(state: Config.OUTGOING)
+    }
+    
+    func onConnected(model: CallModel) {
+        print("\(TAG) \(#function)")
+        print("\(TAG) callModel is \(model)")
+        setCallVisibility(state: Config.CONNECTED)
+    }
+    
+    func onTerminated(model: CallModel) {
+        print("\(TAG) \(#function)")
+        print("\(TAG) callModel is \(model)")
+        setCallVisibility(state: Config.TERMINATED)
+    }
+    
+    func modalCallController() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let callController = storyBoard.instantiateViewController(withIdentifier: "Call")
+        callController.modalTransitionStyle = .coverVertical
+        self.present(callController, animated: true, completion: nil)
+    }
+    
+    func moveToCallController() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "Call")
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    private func moveToOutgoing() {
+        let vcToPresent = self.storyboard!.instantiateViewController(withIdentifier: "outgoingCallVC") as! OutgoingViewController
+        vcToPresent.counterpart = "callee"
+        self.present(vcToPresent, animated: true, completion: nil)
     }
     
     private func setRegistrationVisibility(registered: Bool) {
@@ -120,51 +228,65 @@ class ViewController: UIViewController {
         tvBusy.isHidden = true
         tvDecline.isHidden = true
         
+        tvRinging.isHidden = true
         tvReInvite.isHidden = true
         tvBye.isHidden = true
+        
+        tvMessage.isHidden = !registered
+        etTo.isHidden = !registered
+        etMessage.isHidden = !registered
+        tvSend.isHidden = !registered
     }
     
     private func setCallVisibility(state: Int) {
         switch (state) {
-            case OUTGOING:
+            case Config.OUTGOING:
                 tvStartCall.isHidden = true
                 tvUpdateCall.isHidden = false
                 tvCancelCall.isHidden = false
                 tvAnswer.isHidden = true
                 tvBusy.isHidden = true
                 tvDecline.isHidden = true
+                tvRinging.isHidden = true
                 tvReInvite.isHidden = true
                 tvBye.isHidden = true
+                tvCall.text = "Call - Outgoing"
                 break
-            case INCOMING:
+            case Config.INCOMING:
                 tvStartCall.isHidden = true
                 tvUpdateCall.isHidden = true
                 tvCancelCall.isHidden = true
                 tvAnswer.isHidden = false
                 tvBusy.isHidden = false
                 tvDecline.isHidden = false
+                tvRinging.isHidden = false
                 tvReInvite.isHidden = true
                 tvBye.isHidden = true
+                tvCall.text = "Call - Incoming"
                 break
-            case CONNECTED:
+            case Config.CONNECTED:
                 tvStartCall.isHidden = true
                 tvUpdateCall.isHidden = true
                 tvCancelCall.isHidden = true
                 tvAnswer.isHidden = true
                 tvBusy.isHidden = true
                 tvDecline.isHidden = true
+                tvRinging.isHidden = true
                 tvReInvite.isHidden = false
                 tvBye.isHidden = false
+                tvCall.text = "Call - Connected"
                 break
-            case TERMINATED:
+            case Config.TERMINATED:
                 tvStartCall.isHidden = false
                 tvUpdateCall.isHidden = true
                 tvCancelCall.isHidden = true
                 tvAnswer.isHidden = true
                 tvBusy.isHidden = true
                 tvDecline.isHidden = true
+                tvRinging.isHidden = true
                 tvReInvite.isHidden = true
                 tvBye.isHidden = true
+                tvCall.text = "Call - Terminated"
                 break
             default:
                 print("default")
@@ -179,5 +301,40 @@ class ViewController: UIViewController {
                 print("Mic: 권한 거부")
             }
         })
+    }
+}
+
+extension UITextField {
+    @IBInspectable var doneAccessory: Bool {
+        get {
+            print("doneAccessory get")
+            return self.doneAccessory
+        }
+        set (hasDone) {
+            print("doneAccessory set \(hasDone)")
+            if hasDone{
+                addDoneButtonOnKeyboard()
+            }
+        }
+    }
+    
+    func addDoneButtonOnKeyboard() {
+        print("addDoneButtonOnKeyboard")
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
+    }
+    
+    @objc func doneButtonAction() {
+        print("doneButtonAction")
+        self.resignFirstResponder()
     }
 }

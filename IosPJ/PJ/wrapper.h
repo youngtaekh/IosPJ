@@ -40,7 +40,7 @@
 /**
  Create Account via following config(string username, string password, string ip, string port)
  */
--(void) createAccountWrapper :(NSString*) username :(NSString*) password :(NSString*) ip :(NSString*) port;
+-(void) createAccountWrapper :(NSString*) username :(NSString*) password :(NSString*) address;
 
 /**
  Unregister account
@@ -62,6 +62,7 @@
 -(NSString*) incomingCallInfoWrapper;
 
 
+-(void) onRegisterListenerWrapper: (void(*)(bool, int))function;
 /**
  Listener (When we have incoming call, this function pointer will notify swift.)
  (Runs swift code from C++)
@@ -73,6 +74,8 @@
  (Runs swift code from C++)
  */
 -(void) call_listener_wrapper: (void(*)(int))function;
+
+-(void) ringingCallWrapper;
 
 /**
  Answer incoming call

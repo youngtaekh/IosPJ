@@ -18,6 +18,7 @@
  */
 
 #include <string>
+#include <iostream>
 #include <pjsua2.hpp>
 #include <dispatch/dispatch.h>
 
@@ -26,6 +27,12 @@
  */
 class PJSua2{
 public:
+    PJSua2() {
+        std::cout << "PJSua2 constructor" << std::endl;
+    }
+    ~PJSua2() {
+        std::cout << "PJSua2 destructor" << std::endl;
+    }
     
     //Lib
     /**
@@ -44,7 +51,7 @@ public:
     /**
      Create Account via following config(string username, string password, string ip, string port)
      */
-    void createAccount(std::string username, std::string password, std::string ip, std::string port);
+    void createAccount(std::string username, std::string password, std::string address);
     
     /**
      Unregister account
@@ -67,6 +74,7 @@ public:
      */
     std::string incomingCallInfo();
 
+    void onRegisterListener(void(*function)(bool, int));
     /**
      Listener (When we have incoming call, this function pointer will notify swift.)
      */
@@ -76,6 +84,8 @@ public:
      Listener (When we have changes on the call state, this function pointer will notify swift.)
      */
     void call_listener(void(*function)(int));
+    
+    void ringingCall();
     
     /**
      Answer incoming call

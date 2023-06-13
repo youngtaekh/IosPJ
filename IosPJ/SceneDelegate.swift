@@ -10,12 +10,41 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var reach: Reachability?
+    var currentNetwork = Config.INIT
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        print("0. willConnectTo")
+        reach = try? Reachability.init(hostname: Config.ADDRESS)
+        reach?.whenReachable = { reach -> Void in
+            if (reach.isReachableViaWiFi) {
+                if (self.currentNetwork == Config.INIT || self.currentNetwork != Config.WIFI) {
+                    print("Network \(self.currentNetwork) -> wifi")
+                    CallManager.getInstance().networkChanged()
+                }
+                self.currentNetwork = Config.WIFI
+            } else if (reach.isReachableViaWWAN) {
+                if (self.currentNetwork == Config.INIT || self.currentNetwork != Config.MOBILE) {
+                    print("Network \(self.currentNetwork) -> mobile")
+                    CallManager.getInstance().networkChanged()
+                }
+                self.currentNetwork = Config.MOBILE
+            } else {
+                if (self.currentNetwork == Config.INIT || self.currentNetwork != Config.NONE) {
+                    print("Network \(self.currentNetwork) -> Unavailable")
+                    CallManager.getInstance().networkChanged()
+                }
+                self.currentNetwork = Config.NONE
+            }
+        }
+        
+        reach?.whenUnreachable = { reach -> Void in
+            print("Network Unreachable")
+            self.currentNetwork = Config.NONE
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -24,29 +53,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        print("5. sceneDidDisconnect")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        print("2. sceneDidBecomeActive")
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
+        print("3. sceneWillResignActive")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        print("1. sceneWillEnterForeground")
+        try? reach?.startNotifier()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        print("4. sceneDidEnterBackground")
+        reach?.stopNotifier()
     }
-
-
 }
-

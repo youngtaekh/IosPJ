@@ -3,3 +3,4 @@
 //
 
 #import "wrapper.h"
+#import "PJManager.h"

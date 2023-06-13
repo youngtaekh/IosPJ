@@ -18,12 +18,12 @@
  */
 
 #include "CustomPJSUA2.hpp"
-#include <iostream>
 #include <list>
 
 using namespace pj;
 
 // Listen swift code via function pointers
+void (*registrationPtr)(bool, int) = 0;
 void (*incomingCallPtr)() = 0;
 void (*callStatusListenerPtr)(int) = 0;
 
@@ -39,45 +39,52 @@ std::string callerId;
 bool registerState = false;
 
 void setCallerId(std::string callerIdStr){
+    std::cout << "CustomPJSUA2.setCallerId" << std::endl;
     callerId = callerIdStr;
 }
 
 std::string getCallerId(){
+    std::cout << "CustomPJSUA2.getCallerId" << std::endl;
     return callerId;
 }
 
 void setRegisterState(bool registerStateBool){
+    std::cout << "CustomPJSUA2.setRegisterState" << std::endl;
     registerState = registerStateBool;
 }
 
 bool getRegisterState(){
+    std::cout << "CustomPJSUA2.getRegisterState" << std::endl;
     return registerState;
 }
 
 
 //Call object to manage call operations.
-Call *call = NULL;
+Call *myCall = NULL;
 
 
 // Subclass to extend the Call and get notifications etc.
 class MyCall : public Call
 {
 public:
-    MyCall(Account &acc, int call_id = PJSUA_INVALID_ID) : Call(acc, call_id)
-    { }
-    ~MyCall()
-    { }
-
+    MyCall(Account &acc, int call_id = PJSUA_INVALID_ID) : Call(acc, call_id) {
+        std::cout << "MyCall.constructor" << std::endl;
+    }
+    ~MyCall(){
+        std::cout << "MyCall.destructor" << std::endl;
+    }
+    
     // Notification when call's state has changed.
-    virtual void onCallState(OnCallStateParam &prm){
+    virtual void onCallState(OnCallStateParam &prm) {
+        std::cout << "MyCall.onCallState" << std::endl;
         CallInfo ci = getInfo();
-           if (ci.state == PJSIP_INV_STATE_DISCONNECTED) {
-               callStatusListenerPtr(0);
-               
-               /* Delete the call */
-               delete call;
-               call = NULL;
-           }
+        if (ci.state == PJSIP_INV_STATE_DISCONNECTED) {
+            callStatusListenerPtr(0);
+            
+            /* Delete the call */
+            delete myCall;
+            myCall = NULL;
+        }
         if (ci.state == PJSIP_INV_STATE_CONFIRMED) {
             callStatusListenerPtr(1);
         }
@@ -89,9 +96,10 @@ public:
         pjsua2.incomingCallInfo();
         
     }
-
+    
     // Notification when call's media state has changed.
-    virtual void onCallMediaState(OnCallMediaStateParam &prm){
+    virtual void onCallMediaState(OnCallMediaStateParam &prm) {
+        std::cout << "MyCall.onCallMediaState" << std::endl;
         CallInfo ci = getInfo();
         // Iterate all the call medias
         for (unsigned i = 0; i < ci.media.size(); i++) {
@@ -110,13 +118,15 @@ public:
 
 // Subclass to extend the Account and get notifications etc.
 class MyAccount : public Account {
-    public:
-    MyAccount() {}
-    ~MyAccount()
-    {
-    // Invoke shutdown() first..
-    shutdown();
-    // ..before deleting any member objects.
+public:
+    MyAccount() {
+        std::cout << "MyAccount.constructor" << std::endl;
+    }
+    ~MyAccount() {
+        std::cout << "MyAccount.destructor" << std::endl;
+        // Invoke shutdown() first..
+        shutdown();
+        // ..before deleting any member objects.
     }
     
     
@@ -129,21 +139,23 @@ class MyAccount : public Account {
 
 
 //Creating objects
-Endpoint *ep = new Endpoint;
-MyAccount *acc = new MyAccount;
+Endpoint *ep;
+MyAccount *acc;
 
-void MyAccount::onRegState(OnRegStateParam &prm){
+void MyAccount::onRegState(OnRegStateParam &prm) {
+    std::cout << "MyAccount::onRegState" << std::endl;
     AccountInfo ai = getInfo();
     std::cout << (ai.regIsActive? "*** Register: code=" : "*** Unregister: code=") << prm.code << std::endl;
     PJSua2 pjsua2;
     setRegisterState(ai.regIsActive);
     pjsua2.registerStateInfo();
-
+    registrationPtr(ai.regIsActive, prm.code);
 }
 
 void MyAccount::onIncomingCall(OnIncomingCallParam &iprm) {
+    std::cout << "MyAccount::onIncomingCall" << std::endl;
     incomingCallPtr();
-    call = new MyCall(*this, iprm.callId);
+    myCall = new MyCall(*this, iprm.callId);
 }
 
 
@@ -151,6 +163,8 @@ void MyAccount::onIncomingCall(OnIncomingCallParam &iprm) {
  Create Lib with EpConfig
  */
 void PJSua2::createLib() {
+    std::cout << "PJSua2::createLib" << std::endl;
+    ep = new Endpoint;
     try {
         ep->libCreate();
     } catch (Error& err){
@@ -161,18 +175,17 @@ void PJSua2::createLib() {
     try {
         EpConfig ep_cfg;
         ep->libInit( ep_cfg );
-    
+        ep_cfg.uaConfig.userAgent = "iOS UA";
+        
     } catch(Error& err) {
         std::cout << "Initialization error: " << err.info() << std::endl;
     }
-    
-    //    ep->audDevManager().setSndDevMode(1);
     
     // Create SIP transport. Error handling sample is shown
     TransportConfig transportConfig;
     transportConfig.port = 5060;
     try {
-        TransportId tid = ep->transportCreate(PJSIP_TRANSPORT_UDP, transportConfig);
+        ep->transportCreate(PJSIP_TRANSPORT_UDP, transportConfig);
         
     } catch(Error& err) {
         std::cout << "Transport creation error: " << err.info() << std::endl;
@@ -187,11 +200,11 @@ void PJSua2::createLib() {
         ep->transportCreate(PJSIP_TRANSPORT_TLS, transportConfig);
     } catch (Error& err) {}
     transportConfig.port = 5060;
-
+    
     // Start the library (worker threads etc)
     try { ep->libStart();
     } catch(Error& err) {
-    std::cout << "Startup error: " << err.info() << std::endl;
+        std::cout << "Startup error: " << err.info() << std::endl;
     }
 }
 
@@ -200,6 +213,7 @@ void PJSua2::createLib() {
  Delete lib
  */
 void PJSua2::deleteLib() {
+    std::cout << "PJSua2::deleteLib" << std::endl;
     
     // Here we don't have anything else to do..
     pj_thread_sleep(500);
@@ -215,19 +229,20 @@ void PJSua2::deleteLib() {
 /**
  Create Account via following config(string username, string password, string ip, string port)
  */
-void PJSua2::createAccount(std::string username, std::string password, std::string ip, std::string port) {
+void PJSua2::createAccount(std::string username, std::string password, std::string address) {
+    std::cout << "PJSua2::createAccount" << std::endl;
     
     // Configure an AccountConfig
     AccountConfig acfg;
-    acfg.idUri = "sip:" + username + "@" + ip + ":" + port;
-    acfg.regConfig.registrarUri = "sip:" + ip + ":" + port;
+    acfg.idUri = "sip:" + username + "@" + address;
+    acfg.regConfig.registrarUri = "sip:" + address;
     StringVector proxies;
     proxies.push_back(acfg.regConfig.registrarUri + ";hide;transport=tls");
     acfg.sipConfig.proxies = proxies;
     AuthCredInfo cred("digest", "*", username, 0, password);
     acfg.sipConfig.authCreds.push_back(cred);
     
-    
+    acc = new MyAccount;
     //  TODO:: GET ID -1 IS EXPERIMENTAL, NOT SURE THAT, IT IS GOOD WAY TO CHECK ACC IS CREATED. FIX IT!
     if(acc->getId() == -1){
         // Create the account
@@ -254,6 +269,7 @@ void PJSua2::createAccount(std::string username, std::string password, std::stri
  Unregister account
  */
 void PJSua2::unregisterAccount() {
+    std::cout << "PJSua2::unregisterAccount" << std::endl;
     acc->setRegistration(false);
 }
 
@@ -262,6 +278,7 @@ void PJSua2::unregisterAccount() {
  Get register state true / false
  */
 bool PJSua2::registerStateInfo(){
+    std::cout << "PJSua2::registerStateInfo" << std::endl;
     return getRegisterState();
 }
 
@@ -270,14 +287,20 @@ bool PJSua2::registerStateInfo(){
  Get caller id for incoming call, checks account currently registered (ai.regIsActive)
  */
 std::string PJSua2::incomingCallInfo() {
+    std::cout << "PJSua2::incomingCallInfo" << std::endl;
     return getCallerId();
 }
 
+void PJSua2::onRegisterListener(void (* funcpntr)(bool, int)) {
+    std::cout << "PJSua2::onRegisterListener" << std::endl;
+    registrationPtr = funcpntr;
+}
 
 /**
  Listener (When we have incoming call, this function pointer will notify swift.)
  */
 void PJSua2::incoming_call(void (* funcpntr)()){
+    std::cout << "PJSua2::incoming_call" << std::endl;
     incomingCallPtr = funcpntr;
 }
 
@@ -285,45 +308,55 @@ void PJSua2::incoming_call(void (* funcpntr)()){
 /**
  Listener (When we have changes on the call state, this function pointer will notify swift.)
  */
-void PJSua2::call_listener(void (* funcpntr)(int)){
+void PJSua2::call_listener(void (* funcpntr)(int)) {
+    std::cout << "PJSua2::call_listener" << std::endl;
     callStatusListenerPtr = funcpntr;
 }
 
+void PJSua2::ringingCall() {
+    std::cout << "PJSua2::ringingCall" << std::endl;
+    CallOpParam op;
+    op.statusCode = PJSIP_SC_RINGING;
+    myCall->answer(op);
+}
 
 /**
  Answer incoming call
  */
-void PJSua2::answerCall(){
+void PJSua2::answerCall() {
+    std::cout << "PJSua2::answerCall" << std::endl;
     CallOpParam op;
     op.statusCode = PJSIP_SC_OK;
-    call->answer(op);
+    myCall->answer(op);
 }
 
 
 /**
  Hangup active call (Incoming/Outgoing/Active)
  */
-void PJSua2::hangupCall(){
+void PJSua2::hangupCall() {
+    std::cout << "PJSua2::hangupCall" << std::endl;
     
-    if (call != NULL) {
+    if (myCall != NULL) {
         CallOpParam op;
         op.statusCode = PJSIP_SC_DECLINE;
-        call->hangup(op);
-        delete call;
-        call = NULL;
+        myCall->hangup(op);
+        delete myCall;
+        myCall = NULL;
     }
 }
 
 /**
  Hold the call
  */
-void PJSua2::holdCall(){
+void PJSua2::holdCall() {
+    std::cout << "PJSua2::holdCall" << std::endl;
     
-    if (call != NULL) {
+    if (myCall != NULL) {
         CallOpParam op;
         
         try {
-            call->setHold(op);
+            myCall->setHold(op);
         } catch(Error& err) {
             std::cout << "Hold error: " << err.info() << std::endl;
         }
@@ -334,15 +367,16 @@ void PJSua2::holdCall(){
 /**
  Unhold the call
  */
-void PJSua2::unholdCall(){
-
-    if (call != NULL) {
+void PJSua2::unholdCall() {
+    std::cout << "PJSua2::unholdCall" << std::endl;
+    
+    if (myCall != NULL) {
         
         CallOpParam op;
         op.opt.flag=PJSUA_CALL_UNHOLD;
         
         try {
-            call->reinvite(op);
+            myCall->reinvite(op);
         } catch(Error& err) {
             std::cout << "Unhold/Reinvite error: " << err.info() << std::endl;
         }
@@ -353,12 +387,13 @@ void PJSua2::unholdCall(){
  Make outgoing call (string dest_uri) -> e.g. makeCall(sip:<SIP_USERNAME@SIP_IP:SIP_PORT>)
  */
 void PJSua2::outgoingCall(std::string dest_uri) {
+    std::cout << "PJSua2::outgoingCall" << std::endl;
     CallOpParam prm(true); // Use default call settings
     try {
-    call = new MyCall(*acc);
-    call->makeCall(dest_uri, prm);
+        myCall = new MyCall(*acc);
+        myCall->makeCall(dest_uri, prm);
     } catch(Error& err) {
-    std::cout << err.info() << std::endl;
+        std::cout << err.info() << std::endl;
     }
 }
 
