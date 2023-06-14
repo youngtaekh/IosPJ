@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  IosPJ
+
+  Created by young on 2023/06/14.
+  
+*/
+
+"CFBundleDisplayName" = "PJ Client";
+"CFBundleName" = "카운트 기록";

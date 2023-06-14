@@ -40,6 +40,8 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     private var registered = false
     
     private var manager: CallManager?
+    private var delegate: CallDelegate?
+    private var tempUUID: UUID?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,7 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
         PublisherImpl.instance.add(key: TAG, observer: self as CallObserver)
         
         manager = CallManager.getInstance()
+        delegate = CallDelegate.instance
         
         outbound.placeholder = "address"
         port.placeholder = "port"
@@ -103,19 +106,19 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     @IBAction func cancelCall(_ sender: Any) {
         print("cancelCall")
-        manager?.cancelCall()
+        CallDelegate.instance.cancel()
     }
     @IBAction func answerCall(_ sender: UIButton) {
         print("answerCall")
-        manager?.answerCall()
+        delegate?.answer()
     }
     @IBAction func busyCall(_ sender: Any) {
         print("busyCall")
-        manager?.busyCall()
+        CallDelegate.instance.busy()
     }
     @IBAction func declineCall(_ sender: Any) {
         print("declineCall")
-        manager?.declineCall()
+        CallDelegate.instance.decline()
     }
     @IBAction func ringing(_ sender: Any) {
         print("ringing")
@@ -127,7 +130,7 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     @IBAction func byeCall(_ sender: Any) {
         print("byeCall")
-        manager?.byeCall()
+        CallDelegate.instance.bye()
     }
     @IBAction func sendMessage(_ sender: Any) {
         print("sendMessage")

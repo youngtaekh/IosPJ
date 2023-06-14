@@ -1,0 +1,96 @@
+
+/* Class = "UIButton"; configuration.title = "Send"; ObjectID = "66p-nH-WGT"; */
+"66p-nH-WGT.configuration.title" = "Send";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "66p-nH-WGT"; */
+"66p-nH-WGT.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Incoming"; ObjectID = "AnL-d5-5Y1"; */
+"AnL-d5-5Y1.text" = "Incoming";
+
+/* Class = "UILabel"; text = "Recieve"; ObjectID = "DjW-Wc-57k"; */
+"DjW-Wc-57k.text" = "Recieve";
+
+/* Class = "UIButton"; configuration.title = "Start Call"; ObjectID = "FcW-uX-6A4"; */
+"FcW-uX-6A4.configuration.title" = "Start Call";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FcW-uX-6A4"; */
+"FcW-uX-6A4.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Ringing"; ObjectID = "GIA-IO-7G4"; */
+"GIA-IO-7G4.configuration.title" = "Ringing";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GIA-IO-7G4"; */
+"GIA-IO-7G4.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Answer"; ObjectID = "IUb-jZ-Qj4"; */
+"IUb-jZ-Qj4.configuration.title" = "Answer";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IUb-jZ-Qj4"; */
+"IUb-jZ-Qj4.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Update"; ObjectID = "Iep-6R-tai"; */
+"Iep-6R-tai.configuration.title" = "Update";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Iep-6R-tai"; */
+"Iep-6R-tai.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Bye"; ObjectID = "JMP-AK-Jve"; */
+"JMP-AK-Jve.configuration.title" = "Bye";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "JMP-AK-Jve"; */
+"JMP-AK-Jve.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Start"; ObjectID = "KfL-4B-79y"; */
+"KfL-4B-79y.configuration.title" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "KfL-4B-79y"; */
+"KfL-4B-79y.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "ReInvite"; ObjectID = "Rzu-8Y-HM0"; */
+"Rzu-8Y-HM0.configuration.title" = "ReInvite";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rzu-8Y-HM0"; */
+"Rzu-8Y-HM0.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Call - Idle"; ObjectID = "THJ-PE-N9k"; */
+"THJ-PE-N9k.text" = "Call - Idle";
+
+/* Class = "UITextField"; accessibilityHint = "outbound:port"; ObjectID = "Zz9-EG-pNq"; */
+"Zz9-EG-pNq.accessibilityHint" = "outbound:port";
+
+/* Class = "UIButton"; configuration.title = "Stop"; ObjectID = "gwj-N1-CbS"; */
+"gwj-N1-CbS.configuration.title" = "Stop";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gwj-N1-CbS"; */
+"gwj-N1-CbS.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Busy"; ObjectID = "hCj-Jf-elX"; */
+"hCj-Jf-elX.configuration.title" = "Busy";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hCj-Jf-elX"; */
+"hCj-Jf-elX.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Cancel"; ObjectID = "lsw-Im-uTa"; */
+"lsw-Im-uTa.configuration.title" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lsw-Im-uTa"; */
+"lsw-Im-uTa.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Decline"; ObjectID = "psB-d6-F2c"; */
+"psB-d6-F2c.configuration.title" = "Decline";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "psB-d6-F2c"; */
+"psB-d6-F2c.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Registration"; ObjectID = "s7C-Uo-5NU"; */
+"s7C-Uo-5NU.text" = "Registration";
+
+/* Class = "UILabel"; text = "Outgoing"; ObjectID = "x1V-Ih-iRV"; */
+"x1V-Ih-iRV.text" = "Outgoing";
+
+/* Class = "UIButton"; configuration.title = "Refresh"; ObjectID = "y3u-dw-VIk"; */
+"y3u-dw-VIk.configuration.title" = "Refresh";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "y3u-dw-VIk"; */
+"y3u-dw-VIk.normalTitle" = "Button";

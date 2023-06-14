@@ -27,7 +27,10 @@ import UIKit
 
 func onIncomingCall() {
     DispatchQueue.main.async () {
-        CallManager.getInstance().callModel = CallModel(counterpart: PJManager().getCounterpart(), incoming: true)
+        CallManager.getInstance().callModel = CallModel(counterpart: PJManager().getCounterpart(), uuid: UUID(), incoming: true)
+        CallDelegate.instance.reportIncomingCall(
+            title: CallManager.getInstance().callModel!.counterpart,
+            uuid: CallManager.getInstance().callModel!.uuid)
         PublisherImpl.instance.onIncomingCallObserver(model: CallManager.getInstance().callModel!)
         PJManager().addCallListener(onCallStateListener)
         CallManager.getInstance().ringingCall()
@@ -50,7 +53,6 @@ func onCallStateListener(code: Int32) {
                 break
             case 3:
                 print("state - EARLY")
-                manager.callModel = CallModel(counterpart: PJManager().getCounterpart(), outgoing: true)
                 PublisherImpl.instance.onOutgoingCallObserver(model: manager.callModel!)
                 break
             case 4:
@@ -60,12 +62,16 @@ func onCallStateListener(code: Int32) {
                 print("state - CONFIRMED")
                 manager.callModel!.connected = true
                 PublisherImpl.instance.onConnectedObserver(model: manager.callModel!)
+                if (manager.callModel!.outgoing) {
+                    CallDelegate.instance.reportOutgoingCallConnected(uuid: manager.callModel!.uuid)
+                }
                 break
             case 6:
                 print("state - DISCONNECTED")
                 manager.callModel!.terminated = true
                 PublisherImpl.instance.onTerminatedObserver(model: manager.callModel!)
                 manager.stopRegistration()
+                CallDelegate.instance.onTerminated()
                 break
             default:
                 print("state - default")

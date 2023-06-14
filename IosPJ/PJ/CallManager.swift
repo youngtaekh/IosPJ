@@ -48,7 +48,7 @@ class CallManager {
             print("callModel is nil")
         } else {
             print("callModel ain't nil")
-            print("Counterpart \(callModel!.counterpart!)")
+            print("Counterpart \(callModel!.counterpart)")
             print("Outgoing \(callModel!.outgoing)")
             print("Incoming \(callModel!.incoming)")
             print("Connected \(callModel!.connected)")
@@ -63,7 +63,10 @@ class CallManager {
     }
     
     func startCall(counterpart: String) {
-        callModel = CallModel(counterpart: counterpart, outgoing: true)
+        callModel = CallModel(counterpart: counterpart, uuid: UUID(), outgoing: true)
+        CallDelegate.instance.start(
+            counterpartName: callModel!.counterpart,
+            uuid: callModel!.uuid)
         PJManager().makeCall(counterpart)
     }
     
