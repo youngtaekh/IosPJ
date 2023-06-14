@@ -17,7 +17,7 @@ UserAgent ua;
                    userId:(NSString *)userId
                  password:(NSString *)password
             transportType:(NSString *)transportType
-         registerListener:(void (*)(bool, int))registerListener
+         registerListener:(void (*)(bool, int, int))registerListener
           messageListener:(void (*)())messageListener
          incomingListener:(void (*)())incomingListener
 {

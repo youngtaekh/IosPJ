@@ -7,7 +7,7 @@
 
 #include "UserAgent.hpp"
 
-void (*onRegistrationPtr)(bool, int) = 0;
+void (*onRegistrationPtr)(bool, int, int) = 0;
 void (*onMessageListenerPtr)() = 0;
 void (*onIncomingCallPtr)() = 0;
 void (*onCallPtr)(int) = 0;
@@ -119,8 +119,9 @@ AccountImpl *accountImpl;
 void AccountImpl::onRegState(OnRegStateParam &prm) {
     AccountInfo info = getInfo();
     std::cout << (info.regIsActive? "*** Register: code=" : "*** Unregister: code=") << prm.code << std::endl;
+    std::cout << "expire " << info.regExpiresSec << std::endl;
     isRegistration = info.regIsActive;
-    onRegistrationPtr(info.regIsActive, prm.code);
+    onRegistrationPtr(info.regIsActive, prm.code, info.regExpiresSec);
 }
 
 void AccountImpl::onIncomingCall(OnIncomingCallParam &iprm) {
@@ -345,7 +346,7 @@ void UserAgent::sendInstanceMessage(std::string uri, std::string msg) {
     accountImpl->sendBuddy(msg);
 }
 
-void UserAgent::addRegisterListener(void (*function)(bool, int)) {
+void UserAgent::addRegisterListener(void (*function)(bool, int, int)) {
     onRegistrationPtr = function;
 }
 

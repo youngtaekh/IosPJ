@@ -40,7 +40,7 @@ public:
     
     void sendInstanceMessage(std::string uri, std::string msg);
     
-    void addRegisterListener(void (*function)(bool, int));
+    void addRegisterListener(void (*function)(bool, int, int));
     void addMessageListener(void (*function)());
     void addIncomingCallListener(void (*function)());
     void addCallListener(void (*function)(int));
