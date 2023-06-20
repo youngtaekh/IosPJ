@@ -17,14 +17,20 @@ func onRegisterListener(isActive: Bool, code: Int32, expiration: Int32) {
         if (code == 200) {
             if (expiration <= 0) {
                 PublisherImpl.instance.onUnRegistrationSuccessObserver(model: model)
+                CallManager.getInstance().registrationModel!.registered = false
+                CallManager.getInstance().stopNetworkNotifier()
             } else {
                 PublisherImpl.instance.onRegistrationSuccessObserver(model: model)
+                CallManager.getInstance().registrationModel!.registered = true
+                CallManager.getInstance().startNetworkNotifier()
             }
         } else {
             if (expiration <= 0) {
                 PublisherImpl.instance.onUnRegistrationFailureObserver(model: model)
             } else {
                 PublisherImpl.instance.onRegistrationFailureObserver(model: model)
+                CallManager.getInstance().registrationModel!.registered = false
+                CallManager.getInstance().stopNetworkNotifier()
             }
         }
     }
@@ -36,6 +42,7 @@ func onMessageReceived() {
         let model = MessageModel()
         model.from = PJManager().getFrom()
         model.message = PJManager().getMessage()
+        print("onMessageReceived message - \(String(describing: model.message)) asdf")
         PublisherImpl.instance.onInstantMessageObserver(model: model)
     }
 }

@@ -45,6 +45,9 @@ public:
     void addIncomingCallListener(void (*function)());
     void addCallListener(void (*function)(int));
     
+    void activateAudioSession();
+    void deactivateAudioSession();
+    
     bool isRegistered();
     std::string getCounterpart();
     std::string getFrom();

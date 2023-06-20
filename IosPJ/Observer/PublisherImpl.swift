@@ -79,21 +79,21 @@ class PublisherImpl: Publisher {
     }
     
     func onOutgoingCallObserver(model: CallModel) {
-        print("\(TAG) onIncomingCallObserver(CallModel)")
+        print("\(TAG) onOutgoingCallObserver(CallModel)")
         for observer in callObservers.values {
             observer.onOutgoingCall(model: model)
         }
     }
     
     func onConnectedObserver(model: CallModel) {
-        print("\(TAG) onIncomingCallObserver(CallModel)")
+        print("\(TAG) onConnectedObserver(CallModel)")
         for observer in callObservers.values {
             observer.onConnected(model: model)
         }
     }
     
     func onTerminatedObserver(model: CallModel) {
-        print("\(TAG) onIncomingCallObserver(CallModel)")
+        print("\(TAG) onTerminatedObserver(CallModel)")
         for observer in callObservers.values {
             observer.onTerminated(model: model)
         }

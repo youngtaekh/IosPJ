@@ -105,6 +105,14 @@ UserAgent ua;
     ua.addCallListener(function);
 }
 
+-(void) activateAudioSession {
+    ua.activateAudioSession();
+}
+
+-(void) deactivateAudioSession {
+    ua.deactivateAudioSession();
+}
+
 -(BOOL) isRegistered {
     return ua.isRegistered();
 }

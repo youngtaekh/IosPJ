@@ -38,6 +38,9 @@
 
 -(void) addCallListener: (void(*)(int))function;
 
+-(void) activateAudioSession;
+-(void) deactivateAudioSession;
+
 -(BOOL) isRegistered;
 -(NSString *) getCounterpart;
 -(NSString *) getFrom;

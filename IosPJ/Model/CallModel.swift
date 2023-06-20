@@ -12,6 +12,7 @@ class CallModel: NSObject {
     var counterpart: String
     var uuid: UUID
     var outgoing = false
+    var pushReceived = false
     var incoming = false
     var connected = false
     var terminated = false

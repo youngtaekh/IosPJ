@@ -62,6 +62,14 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
         etCounterpart.placeholder = "counterpart"
         etTo.placeholder = "To"
         etMessage.placeholder = "Message"
+        
+        outbound.addDoneButtonOnKeyboard()
+        port.addDoneButtonOnKeyboard()
+        id.addDoneButtonOnKeyboard()
+        password.addDoneButtonOnKeyboard()
+        etCounterpart.addDoneButtonOnKeyboard()
+        etTo.addDoneButtonOnKeyboard()
+        etMessage.addDoneButtonOnKeyboard()
 
         password.isSecureTextEntry = true
 
@@ -73,7 +81,16 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
         etTo.text = Config.COUNTERPART
         etMessage.text = "Sample Message"
         
-        setRegistrationVisibility(registered: false)
+        setRegistrationVisibility(registered: manager?.registrationModel?.registered ?? false)
+        if (manager!.callModel != nil && !manager!.callModel!.terminated) {
+            if (manager!.callModel!.connected) {
+                setCallVisibility(state: Config.CONNECTED)
+            } else if (manager!.callModel!.incoming) {
+                setCallVisibility(state: Config.INCOMING)
+            } else if (manager!.callModel!.outgoing) {
+                setCallVisibility(state: Config.OUTGOING)
+            }
+        }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -88,11 +105,13 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     @IBAction func stopRegistration(_ sender: UIButton) {
         print("stopRegistration")
-        manager?.stopRegistration()
+//        manager?.stopRegistration()
+        manager!.useSpeaker()
     }
     @IBAction func refreshRegistration(_ sender: UIButton) {
         print("refreshRegistration")
-        manager?.networkChanged()
+//        manager?.networkChanged()
+        manager!.useEarpiece()
     }
     @IBAction func startCall(_ sender: Any) {
         let callee = "sip:\(etCounterpart.text!)@\(outbound.text!)"
@@ -106,7 +125,7 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     @IBAction func cancelCall(_ sender: Any) {
         print("cancelCall")
-        CallDelegate.instance.cancel()
+        delegate?.cancel()
     }
     @IBAction func answerCall(_ sender: UIButton) {
         print("answerCall")
@@ -114,11 +133,11 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     @IBAction func busyCall(_ sender: Any) {
         print("busyCall")
-        CallDelegate.instance.busy()
+        delegate?.busy()
     }
     @IBAction func declineCall(_ sender: Any) {
         print("declineCall")
-        CallDelegate.instance.decline()
+        delegate?.decline()
     }
     @IBAction func ringing(_ sender: Any) {
         print("ringing")
@@ -130,7 +149,7 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     @IBAction func byeCall(_ sender: Any) {
         print("byeCall")
-        CallDelegate.instance.bye()
+        delegate?.bye()
     }
     @IBAction func sendMessage(_ sender: Any) {
         print("sendMessage")
@@ -141,7 +160,6 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     func onRegistrationSuccess(model: RegistrationModel) {
         print("\(TAG) \(#function)")
         if (!manager!.registrationModel!.registered) {
-            manager!.registrationModel!.registered = true
             setRegistrationVisibility(registered: true)
         }
     }
@@ -149,7 +167,6 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     func onRegistrationFailure(model: RegistrationModel) {
         print("\(TAG) \(#function)")
         if (manager!.registrationModel!.registered) {
-            manager!.registrationModel!.registered = false
             setRegistrationVisibility(registered: false)
         }
     }
@@ -157,7 +174,6 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     func onUnRegistrationSuccess(model: RegistrationModel) {
         print("\(TAG) \(#function)")
         if (manager!.registrationModel!.registered) {
-            manager!.registrationModel!.registered = false
             setRegistrationVisibility(registered: false)
         }
     }
@@ -167,8 +183,8 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     
     func onInstantMessage(model: MessageModel) {
-        print("\(TAG) \(#function) message - \(model.message!)")
-        tvMessage.text = "\(model.from!) - \(model.message!)"
+        print("\(TAG) \(#function) message - \(String(describing: model.message))")
+        tvMessage.text = "\(String(describing: model.message))"
     }
     
     func onIncomingCall(model: CallModel) {

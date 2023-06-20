@@ -49,6 +49,8 @@ public:
             onCallPtr(info.state);
         } else if (info.state == PJSIP_INV_STATE_EARLY && info.role == PJSIP_ROLE_UAC) {
             onCallPtr(info.state);
+        } else if (info.state == PJSIP_INV_STATE_INCOMING) {
+            onIncomingCallPtr();
         }
         
         if (info.state == PJSIP_INV_STATE_DISCONNECTED) {
@@ -126,8 +128,8 @@ void AccountImpl::onRegState(OnRegStateParam &prm) {
 
 void AccountImpl::onIncomingCall(OnIncomingCallParam &iprm) {
     std::cout << "AccountImpl::onIncomingCall" << std::endl;
-    onIncomingCallPtr();
     call = new CallImpl(*this, iprm.callId);
+//    onIncomingCallPtr();
 }
 
 void AccountImpl::sendBuddy(std::string msg) {
@@ -151,7 +153,7 @@ void AccountImpl::onIncomingSubscribe(OnIncomingSubscribeParam &param) {
 }
 
 void AccountImpl::onInstantMessage(OnInstantMessageParam &param) {
-    std::cout << "AccountImpl::onInstantMessage" << std::endl;
+    std::cout << "AccountImpl::onInstantMessage from " << param.fromUri << ", message " << param.msgBody << std::endl;
     from = param.fromUri;
     message = param.msgBody;
     onMessageListenerPtr();
@@ -362,6 +364,22 @@ void UserAgent::addCallListener(void (*function)(int)) {
     onCallPtr = function;
 }
 
+void UserAgent::activateAudioSession() {
+//    endPoint->audDevManager().setNoDev();
+    
+    endPoint->audDevManager().setCaptureDev(PJMEDIA_AUD_DEFAULT_CAPTURE_DEV);
+    endPoint->audDevManager().setPlaybackDev(PJMEDIA_AUD_DEFAULT_PLAYBACK_DEV);
+}
+
+void UserAgent::deactivateAudioSession() {
+    try {
+//        endPoint->audDevManager().setNoDev();
+        endPoint->audDevManager().setNullDev();
+    } catch (Error& err) {
+        std::cout << "deactivate err: " << err.info() << std::endl;
+    }
+}
+
 bool UserAgent::isRegistered() {
     return isRegistration;
 }
@@ -375,6 +393,7 @@ std::string UserAgent::getFrom() {
 }
 
 std::string UserAgent::getMessage() {
+    std::cout << "getMessage() - " << message << ", asdf" << std::endl;
     return message;
 }
 

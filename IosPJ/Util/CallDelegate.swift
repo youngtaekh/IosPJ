@@ -20,7 +20,7 @@ class CallDelegate: NSObject, CXProviderDelegate {
         let localizedName = NSLocalizedString("AppName", comment: "Name of application")
         print("\(TAG) init localizedName - \(localizedName)")
         let config = CXProviderConfiguration.init()
-        config.includesCallsInRecents = true
+        config.includesCallsInRecents = false
         config.supportsVideo = false
         config.maximumCallGroups = 1
         config.maximumCallsPerCallGroup = 5
@@ -60,18 +60,13 @@ class CallDelegate: NSObject, CXProviderDelegate {
     }
     
     func start(counterpartName: String, uuid: UUID) {
-        let update = CXCallUpdate.init()
-        update.localizedCallerName = counterpartName
-        update.supportsDTMF = false
-        update.hasVideo = false
-        update.supportsGrouping = false
-        update.supportsUngrouping = false
-        update.supportsHolding = false
         NSLog("%@ uuid %@", #function, uuid.uuidString)
         
         let handle = CXHandle.init(type: CXHandle.HandleType.generic, value: counterpartName)
         let controller = CXCallController.init()
         let startAction = CXStartCallAction.init(call: uuid, handle: handle)
+        
+        startAction.isVideo = false
         
         controller.requestTransaction(with: startAction) { (error: Error?) -> Void in
             if (error == nil) {
@@ -166,8 +161,18 @@ class CallDelegate: NSObject, CXProviderDelegate {
         print("\(TAG) \(#function)")
     }
     
+    func provider(_ provider: CXProvider, perform action: CXStartCallAction) {
+        print("\(TAG) \(#function) CXStartCallAction")
+        CallManager.getInstance().configureAudioSession()
+        PJManager().deactivateAudioSession()
+        action.fulfill()
+        PJManager().makeCall(CallManager.getInstance().callModel!.counterpart)
+    }
+    
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         print("\(TAG) \(#function) CXAnswerCallAction")
+        CallManager.getInstance().configureAudioSession()
+        PJManager().deactivateAudioSession()
         action.fulfill()
         CallManager.getInstance().answerCall()
     }
@@ -210,11 +215,6 @@ class CallDelegate: NSObject, CXProviderDelegate {
         return false
     }
     
-    func provider(_ provider: CXProvider, perform action: CXStartCallAction) {
-        print("\(TAG) \(#function) CXStartCallAction")
-        action.fulfill()
-    }
-    
     func provider(_ provider: CXProvider, timedOutPerforming action: CXAction) {
         print("\(TAG) \(#function) timedOutPerforming")
         action.fulfill()
@@ -222,13 +222,12 @@ class CallDelegate: NSObject, CXProviderDelegate {
     
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
         print("\(TAG) \(#function) didActivate")
-//        let manager = CallManager.instance
-//        manager.startAudio()
+        PJManager().activateAudioSession()
+//        CallManager.getInstance().addObserver()
     }
     
     func provider(_ provider: CXProvider, didDeactivate audioSession: AVAudioSession) {
         print("\(TAG) \(#function) didDeactivate")
-//        let manager = CallManager.instance
-//        manager.stopAudio()
+//        CallManager.getInstance().removeObserver()
     }
 }

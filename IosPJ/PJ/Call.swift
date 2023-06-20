@@ -27,10 +27,15 @@ import UIKit
 
 func onIncomingCall() {
     DispatchQueue.main.async () {
-        CallManager.getInstance().callModel = CallModel(counterpart: PJManager().getCounterpart(), uuid: UUID(), incoming: true)
-        CallDelegate.instance.reportIncomingCall(
-            title: CallManager.getInstance().callModel!.counterpart,
-            uuid: CallManager.getInstance().callModel!.uuid)
+        var model = CallManager.getInstance().callModel
+        if (model == nil || model!.terminated) {
+            model = CallModel(counterpart: PJManager().getCounterpart(), uuid: UUID(), incoming: true)
+            CallDelegate.instance.reportIncomingCall(title: model!.counterpart, uuid: model!.uuid)
+        } else {
+            model!.incoming = true
+            CallDelegate.instance.updateCounterpartName(uuid: model!.uuid, name: "\(model!.counterpart) - incoming")
+        }
+        CallManager.getInstance().callModel = model
         PublisherImpl.instance.onIncomingCallObserver(model: CallManager.getInstance().callModel!)
         PJManager().addCallListener(onCallStateListener)
         CallManager.getInstance().ringingCall()
