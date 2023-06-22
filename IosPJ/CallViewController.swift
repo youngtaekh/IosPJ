@@ -36,11 +36,9 @@ class CallViewController: UIViewController, CallObserver {
         let model = manager!.callModel!
         tvCounterpart.text = model.counterpart
         
-        print("\(TAG) connected \(model.connected)")
-        print("\(TAG) outgoing \(model.outgoing)")
-        print("\(TAG) incoming \(model.incoming)")
-        
-        if (model.connected) {
+        if (model.terminated) {
+            self.navigationController?.popViewController(animated: false)
+        } else if (model.connected) {
             tvTitle.text = "Calling..."
             tvDecline.isHidden = true
             tvAnswer.isHidden = true
@@ -56,7 +54,7 @@ class CallViewController: UIViewController, CallObserver {
             tvEnd.setTitle("Cancel", for: .normal)
             tvMute.isHidden = false
             tvSpeaker.isHidden = false
-        } else {
+        } else if (model.incoming) {
             tvTitle.text = "Incoming Call"
             tvDecline.isHidden = false
             tvAnswer.isHidden = false
@@ -112,6 +110,8 @@ class CallViewController: UIViewController, CallObserver {
         tvAnswer.isHidden = true
         tvEnd.isHidden = false
         tvEnd.setTitle("Hangup", for: .normal)
+        tvMute.isHidden = false
+        tvSpeaker.isHidden = false
     }
     
     func onTerminated(model: CallModel) {

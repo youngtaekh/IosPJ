@@ -77,7 +77,12 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
         etCounterpart.text = Config.COUNTERPART
         etTo.text = Config.COUNTERPART
         etMessage.text = "Sample Message"
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("\(TAG) \(#function)")
+        PublisherImpl.instance.add(key: TAG, observer: self as RegistrationObserver)
+        PublisherImpl.instance.add(key: TAG, observer: self as CallObserver)
         setRegistrationVisibility(registered: manager?.registrationModel?.registered ?? false)
         if (manager!.callModel != nil && !manager!.callModel!.terminated) {
             if (manager!.callModel!.connected) {
@@ -87,14 +92,8 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
             } else if (manager!.callModel!.outgoing) {
                 setCallVisibility(state: Config.OUTGOING)
             }
+            moveToCallController()
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("\(TAG) \(#function)")
-        PublisherImpl.instance.add(key: TAG, observer: self as RegistrationObserver)
-        PublisherImpl.instance.add(key: TAG, observer: self as CallObserver)
-        setRegistrationVisibility(registered: manager?.registrationModel?.registered ?? false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
