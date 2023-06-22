@@ -41,6 +41,8 @@
 -(void) activateAudioSession;
 -(void) deactivateAudioSession;
 
+-(void) mute:(BOOL)mute;
+
 -(BOOL) isRegistered;
 -(NSString *) getCounterpart;
 -(NSString *) getFrom;

@@ -48,6 +48,8 @@ public:
     void activateAudioSession();
     void deactivateAudioSession();
     
+    void mute(bool mute);
+    
     bool isRegistered();
     std::string getCounterpart();
     std::string getFrom();

@@ -33,7 +33,8 @@ func onIncomingCall() {
             CallDelegate.instance.reportIncomingCall(title: model!.counterpart, uuid: model!.uuid)
         } else {
             model!.incoming = true
-            CallDelegate.instance.updateCounterpartName(uuid: model!.uuid, name: "\(model!.counterpart) - incoming")
+            model!.counterpart = PJManager().getCounterpart()
+            CallDelegate.instance.updateCounterpartName(uuid: model!.uuid, name: model!.counterpart)
         }
         CallManager.getInstance().callModel = model
         PublisherImpl.instance.onIncomingCallObserver(model: CallManager.getInstance().callModel!)

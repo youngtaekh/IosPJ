@@ -113,6 +113,10 @@ UserAgent ua;
     ua.deactivateAudioSession();
 }
 
+-(void) mute:(BOOL)mute {
+    ua.mute(mute);
+}
+
 -(BOOL) isRegistered {
     return ua.isRegistered();
 }

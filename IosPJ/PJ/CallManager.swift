@@ -151,6 +151,10 @@ class CallManager {
         PJManager().sendInstanceMessage(to, msg: msg)
     }
     
+    func mute(mute: Bool) {
+        PJManager().mute(mute)
+    }
+    
     func addCallListener() {
         PJManager().addCallListener(onCallStateListener)
     }

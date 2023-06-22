@@ -290,7 +290,6 @@
                         <outlet property="tvStartCall" destination="FcW-uX-6A4" id="h1W-Wu-Lss"/>
                         <outlet property="tvStop" destination="gwj-N1-CbS" id="eeM-SA-iPV"/>
                         <outlet property="tvUpdateCall" destination="Iep-6R-tai" id="KSC-hD-mET"/>
-                        <segue destination="6WZ-Td-T6B" kind="show" id="j02-5W-MwO"/>
                         <segue destination="8Dv-aV-A0k" kind="showDetail" id="uOg-NL-mA7"/>
                     </connections>
                 </viewController>
@@ -306,50 +305,153 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Incoming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnL-d5-5Y1">
-                                <rect key="frame" x="175" y="50" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnL-d5-5Y1">
+                                <rect key="frame" x="20" y="100" width="353" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvE-zO-dlS">
+                                <rect key="frame" x="20" y="233.66666666666666" width="353" height="23.999999999999972"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5M-J0-0Ih">
+                                <rect key="frame" x="50" y="707" width="81" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Decline"/>
+                                <connections>
+                                    <action selector="declineCall:" destination="8Dv-aV-A0k" eventType="touchUpInside" id="1IL-2V-G7Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJl-PA-rl9">
+                                <rect key="frame" x="262" y="707" width="81" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Answer"/>
+                                <connections>
+                                    <action selector="answerCall:" destination="8Dv-aV-A0k" eventType="touchUpInside" id="9wW-Kp-VXK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RTZ-mW-CzT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AnL-d5-5Y1" firstAttribute="top" secondItem="RTZ-mW-CzT" secondAttribute="top" constant="50" id="Eq0-FZ-fmd"/>
+                            <constraint firstItem="AnL-d5-5Y1" firstAttribute="leading" secondItem="RTZ-mW-CzT" secondAttribute="leading" constant="20" id="99G-Qp-oUc"/>
+                            <constraint firstItem="NvE-zO-dlS" firstAttribute="leading" secondItem="RTZ-mW-CzT" secondAttribute="leading" constant="20" id="Aq6-Aa-9Q0"/>
+                            <constraint firstItem="AnL-d5-5Y1" firstAttribute="top" secondItem="RTZ-mW-CzT" secondAttribute="top" constant="100" id="Ddc-Cv-u0M"/>
+                            <constraint firstItem="RTZ-mW-CzT" firstAttribute="trailing" secondItem="NvE-zO-dlS" secondAttribute="trailing" constant="20" id="ICV-h1-gLQ"/>
+                            <constraint firstItem="RTZ-mW-CzT" firstAttribute="bottom" secondItem="q5M-J0-0Ih" secondAttribute="bottom" constant="100" id="fZ9-rv-s1z"/>
+                            <constraint firstItem="RTZ-mW-CzT" firstAttribute="bottom" secondItem="NJl-PA-rl9" secondAttribute="bottom" constant="100" id="hxf-tk-d8E"/>
+                            <constraint firstItem="RTZ-mW-CzT" firstAttribute="trailing" secondItem="NJl-PA-rl9" secondAttribute="trailing" constant="50" id="l3V-Va-cfn"/>
+                            <constraint firstItem="NvE-zO-dlS" firstAttribute="top" secondItem="AnL-d5-5Y1" secondAttribute="bottom" constant="100" id="qgw-Qv-Omg"/>
+                            <constraint firstItem="RTZ-mW-CzT" firstAttribute="trailing" secondItem="AnL-d5-5Y1" secondAttribute="trailing" constant="20" id="sTM-Oz-XkN"/>
+                            <constraint firstItem="q5M-J0-0Ih" firstAttribute="leading" secondItem="RTZ-mW-CzT" secondAttribute="leading" constant="50" id="zeF-J0-wKE"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tvTitle" destination="AnL-d5-5Y1" id="P3m-bf-WcS"/>
+                        <outlet property="tvCounterpart" destination="NvE-zO-dlS" id="deI-RY-GVi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlk-WY-pxe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="827" y="27"/>
         </scene>
-        <!--Outgoing View Controller-->
+        <!--Call View Controller-->
         <scene sceneID="QCD-4k-zGq">
             <objects>
-                <viewController storyboardIdentifier="outgoingCallVC" id="6WZ-Td-T6B" customClass="OutgoingViewController" customModule="IosPJ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="callVC" id="6WZ-Td-T6B" customClass="CallViewController" customModule="IosPJ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zMn-Uk-FV0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outgoing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1V-Ih-iRV">
-                                <rect key="frame" x="20" y="203" width="353" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1V-Ih-iRV">
+                                <rect key="frame" x="20" y="159" width="353" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9t-aD-CQF">
+                                <rect key="frame" x="20" y="292.66666666666669" width="353" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DF5-g2-HRt">
+                                <rect key="frame" x="50" y="733" width="81" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Decline"/>
+                                <connections>
+                                    <action selector="declineCall:" destination="6WZ-Td-T6B" eventType="touchUpInside" id="2EN-xj-M7x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8S-Yf-oRA">
+                                <rect key="frame" x="262" y="733" width="81" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Answer"/>
+                                <connections>
+                                    <action selector="answerCall:" destination="6WZ-Td-T6B" eventType="touchUpInside" id="tuG-5W-SyK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYq-g6-Dsr">
+                                <rect key="frame" x="169.66666666666666" y="733" width="54" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="End">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="endCall:" destination="6WZ-Td-T6B" eventType="touchUpInside" id="Vrm-tv-48X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEb-FR-ach">
+                                <rect key="frame" x="80" y="598" width="90" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Mute On"/>
+                                <connections>
+                                    <action selector="mute:" destination="6WZ-Td-T6B" eventType="touchUpInside" id="3ve-6h-jjN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woU-Xu-hW4">
+                                <rect key="frame" x="200" y="598" width="113" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Speaker On"/>
+                                <connections>
+                                    <action selector="speaker:" destination="6WZ-Td-T6B" eventType="touchUpInside" id="lWF-Jx-4lY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iXq-Hv-kBp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="x1V-Ih-iRV" firstAttribute="top" secondItem="iXq-Hv-kBp" secondAttribute="top" constant="100" id="C5b-og-Fd1"/>
+                            <constraint firstItem="ZYq-g6-Dsr" firstAttribute="centerX" secondItem="zMn-Uk-FV0" secondAttribute="centerX" id="EUY-aY-WVz"/>
+                            <constraint firstItem="DF5-g2-HRt" firstAttribute="top" secondItem="nEb-FR-ach" secondAttribute="bottom" constant="100" id="JzM-9e-Azj"/>
                             <constraint firstItem="x1V-Ih-iRV" firstAttribute="leading" secondItem="iXq-Hv-kBp" secondAttribute="leading" constant="20" id="N3D-N9-wcN"/>
                             <constraint firstItem="iXq-Hv-kBp" firstAttribute="trailing" secondItem="x1V-Ih-iRV" secondAttribute="trailing" constant="20" id="QUX-3b-aLf"/>
+                            <constraint firstItem="n9t-aD-CQF" firstAttribute="top" secondItem="x1V-Ih-iRV" secondAttribute="bottom" constant="100" id="X6L-LB-By7"/>
+                            <constraint firstItem="nEb-FR-ach" firstAttribute="leading" secondItem="iXq-Hv-kBp" secondAttribute="leading" constant="80" id="cmD-BC-k2m"/>
+                            <constraint firstItem="iXq-Hv-kBp" firstAttribute="trailing" secondItem="n9t-aD-CQF" secondAttribute="trailing" constant="20" id="gJP-Jg-3ou"/>
+                            <constraint firstItem="iXq-Hv-kBp" firstAttribute="bottom" secondItem="G8S-Yf-oRA" secondAttribute="bottom" constant="50" id="hGz-RM-Iqp"/>
+                            <constraint firstItem="iXq-Hv-kBp" firstAttribute="trailing" secondItem="woU-Xu-hW4" secondAttribute="trailing" constant="80" id="hjD-oG-dlz"/>
+                            <constraint firstItem="iXq-Hv-kBp" firstAttribute="bottom" secondItem="ZYq-g6-Dsr" secondAttribute="bottom" constant="50" id="neM-lN-fVv"/>
+                            <constraint firstItem="n9t-aD-CQF" firstAttribute="leading" secondItem="iXq-Hv-kBp" secondAttribute="leading" constant="20" id="pzo-0g-u5n"/>
+                            <constraint firstItem="iXq-Hv-kBp" firstAttribute="trailing" secondItem="G8S-Yf-oRA" secondAttribute="trailing" constant="50" id="rsV-dm-uRv"/>
+                            <constraint firstItem="iXq-Hv-kBp" firstAttribute="bottom" secondItem="DF5-g2-HRt" secondAttribute="bottom" constant="50" id="sGb-uQ-8mY"/>
+                            <constraint firstItem="G8S-Yf-oRA" firstAttribute="top" secondItem="woU-Xu-hW4" secondAttribute="bottom" constant="100" id="yVT-JP-8Cm"/>
+                            <constraint firstItem="DF5-g2-HRt" firstAttribute="leading" secondItem="iXq-Hv-kBp" secondAttribute="leading" constant="50" id="yWs-Ks-hF6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tvAnswer" destination="G8S-Yf-oRA" id="c1r-nN-2I2"/>
+                        <outlet property="tvCounterpart" destination="n9t-aD-CQF" id="ID2-zx-Ksk"/>
+                        <outlet property="tvDecline" destination="DF5-g2-HRt" id="t0C-t4-CEs"/>
+                        <outlet property="tvEnd" destination="ZYq-g6-Dsr" id="uFX-e1-N7r"/>
+                        <outlet property="tvMute" destination="nEb-FR-ach" id="r0e-yQ-Egd"/>
+                        <outlet property="tvSpeaker" destination="woU-Xu-hW4" id="Ngw-Vm-ZBz"/>
+                        <outlet property="tvTitle" destination="x1V-Ih-iRV" id="VhM-P2-yCH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rn-Oo-mEP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,6 +459,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

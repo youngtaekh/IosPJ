@@ -49,9 +49,6 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
         
         requestMicrophonePermission()
         
-        PublisherImpl.instance.add(key: TAG, observer: self as RegistrationObserver)
-        PublisherImpl.instance.add(key: TAG, observer: self as CallObserver)
-        
         manager = CallManager.getInstance()
         delegate = CallDelegate.instance
         
@@ -92,6 +89,13 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
             }
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("\(TAG) \(#function)")
+        PublisherImpl.instance.add(key: TAG, observer: self as RegistrationObserver)
+        PublisherImpl.instance.add(key: TAG, observer: self as CallObserver)
+        setRegistrationVisibility(registered: manager?.registrationModel?.registered ?? false)
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
         print("\(TAG) \(#function)")
@@ -105,19 +109,18 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     }
     @IBAction func stopRegistration(_ sender: UIButton) {
         print("stopRegistration")
-//        manager?.stopRegistration()
-        manager!.useSpeaker()
+        manager?.stopRegistration()
     }
     @IBAction func refreshRegistration(_ sender: UIButton) {
         print("refreshRegistration")
-//        manager?.networkChanged()
-        manager!.useEarpiece()
+        manager?.networkChanged()
     }
     @IBAction func startCall(_ sender: Any) {
         let callee = "sip:\(etCounterpart.text!)@\(outbound.text!)"
         print("startCall to \(callee)")
         manager?.startCall(counterpart: callee)
         manager?.addCallListener()
+        moveToCallController()
     }
     @IBAction func updateCall(_ sender: Any) {
         print("updateCall")
@@ -190,6 +193,7 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     func onIncomingCall(model: CallModel) {
         print("\(TAG) \(#function)")
         print("\(TAG) callModel is \(model)")
+        moveToCallController()
         setCallVisibility(state: Config.INCOMING)
     }
     
@@ -213,21 +217,21 @@ class ViewController: UIViewController, RegistrationObserver, CallObserver {
     
     func modalCallController() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let callController = storyBoard.instantiateViewController(withIdentifier: "Call")
+        let callController = storyBoard.instantiateViewController(withIdentifier: "incomingCallVC")
         callController.modalTransitionStyle = .coverVertical
         self.present(callController, animated: true, completion: nil)
     }
     
     func moveToCallController() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "Call")
+        let controller = storyBoard.instantiateViewController(withIdentifier: "callVC")
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     private func moveToOutgoing() {
-        let vcToPresent = self.storyboard!.instantiateViewController(withIdentifier: "outgoingCallVC") as! OutgoingViewController
-        vcToPresent.counterpart = "callee"
+        let vcToPresent = self.storyboard!.instantiateViewController(withIdentifier: "callVC") as! CallViewController
         self.present(vcToPresent, animated: true, completion: nil)
     }
     

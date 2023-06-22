@@ -380,6 +380,21 @@ void UserAgent::deactivateAudioSession() {
     }
 }
 
+void UserAgent::mute(bool mute) {
+    CallInfo info = call->getInfo();
+    for(unsigned i = 0; i< info.media.size(); i++) {
+        if (info.media[i].type == PJMEDIA_TYPE_AUDIO && call->getMedia(i)) {
+            AudioMedia *audioMedia = (AudioMedia *)call->getMedia(i);
+            AudDevManager& manager = endPoint->audDevManager();
+            if (mute == true) {
+                manager.getCaptureDevMedia().stopTransmit(*audioMedia);
+            } else {
+                manager.getCaptureDevMedia().startTransmit(*audioMedia);
+            }
+        }
+    }
+}
+
 bool UserAgent::isRegistered() {
     return isRegistration;
 }

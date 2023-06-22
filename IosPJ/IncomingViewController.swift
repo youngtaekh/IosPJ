@@ -9,14 +9,22 @@ import UIKit
 
 class IncomingViewController: UIViewController {
     
-    @IBOutlet weak var tvTitle: UILabel!
+    @IBOutlet weak var tvCounterpart: UILabel!
+    
+    private var manager: CallManager? = nil
     var counterpart: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("IncomingViewController")
-        tvTitle.text = counterpart
+        manager = CallManager.getInstance()
+        tvCounterpart.text = manager?.callModel?.counterpart
         
-        PJManager().addCallListener(onCallStateListener)
+    }
+    @IBAction func declineCall(_ sender: Any) {
+        CallDelegate.instance.decline()
+    }
+    @IBAction func answerCall(_ sender: Any) {
+        CallDelegate.instance.answer()
     }
 }

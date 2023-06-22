@@ -8,17 +8,17 @@
 import Foundation
 
 class Config {
-    static let ADDRESS = "sip.linphone.org"
-    static let PORT = "5061"
-    static let ID = "everareen"
-    static let PASSWORD = "lidue638"
-    static let COUNTERPART = "youngtaek.people"
+//    static let ADDRESS = "sip.linphone.org"
+//    static let PORT = "5061"
+//    static let ID = "everareen"
+//    static let PASSWORD = "lidue638"
+//    static let COUNTERPART = "youngtaek.people"
     
-//    static let ADDRESS = "hongcafew-pbx.peoplev.net"
-//    static let PORT = "5479"
-//    static let ID = "1000005"
-//    static let COUNTERPART = "1000004"
-//    static let PASSWORD = "1234"
+    static let ADDRESS = "hongcafew-pbx.peoplev.net"
+    static let PORT = "5479"
+    static let ID = "1000005"
+    static let COUNTERPART = "1000004"
+    static let PASSWORD = "1234"
     
     static let TRANSPORT = "TLS"
     

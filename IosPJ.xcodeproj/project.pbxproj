@@ -16,7 +16,7 @@
 		6F09F49C2A397A28007A7824 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F09F49E2A397A28007A7824 /* InfoPlist.strings */; };
 		6F0B9E782A2DC89E00E8B9B4 /* PJManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E772A2DC89E00E8B9B4 /* PJManager.mm */; };
 		6F0B9E7E2A2DD68F00E8B9B4 /* UserAgent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E7C2A2DD68F00E8B9B4 /* UserAgent.cpp */; };
-		6F0B9E832A31C3F400E8B9B4 /* OutgoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E822A31C3F400E8B9B4 /* OutgoingViewController.swift */; };
+		6F0B9E832A31C3F400E8B9B4 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E822A31C3F400E8B9B4 /* CallViewController.swift */; };
 		6F0B9E852A31C44300E8B9B4 /* IncomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E842A31C44300E8B9B4 /* IncomingViewController.swift */; };
 		6F0B9E882A32B50400E8B9B4 /* RegistrationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E872A32B50400E8B9B4 /* RegistrationObserver.swift */; };
 		6F0B9E8B2A32B57C00E8B9B4 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0B9E8A2A32B57C00E8B9B4 /* RegistrationModel.swift */; };
@@ -80,7 +80,7 @@
 		6F0B9E772A2DC89E00E8B9B4 /* PJManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PJManager.mm; sourceTree = "<group>"; };
 		6F0B9E7C2A2DD68F00E8B9B4 /* UserAgent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UserAgent.cpp; sourceTree = "<group>"; };
 		6F0B9E7D2A2DD68F00E8B9B4 /* UserAgent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UserAgent.hpp; sourceTree = "<group>"; };
-		6F0B9E822A31C3F400E8B9B4 /* OutgoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingViewController.swift; sourceTree = "<group>"; };
+		6F0B9E822A31C3F400E8B9B4 /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		6F0B9E842A31C44300E8B9B4 /* IncomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingViewController.swift; sourceTree = "<group>"; };
 		6F0B9E872A32B50400E8B9B4 /* RegistrationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationObserver.swift; sourceTree = "<group>"; };
 		6F0B9E8A2A32B57C00E8B9B4 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 				6F6F155A2A257CC700DB8376 /* AppDelegate.swift */,
 				6F6F155C2A257CC700DB8376 /* SceneDelegate.swift */,
 				6F6F155E2A257CC700DB8376 /* ViewController.swift */,
-				6F0B9E822A31C3F400E8B9B4 /* OutgoingViewController.swift */,
+				6F0B9E822A31C3F400E8B9B4 /* CallViewController.swift */,
 				6F0B9E842A31C44300E8B9B4 /* IncomingViewController.swift */,
 				6F6F15602A257CC700DB8376 /* Main.storyboard */,
 				6F6F15632A257CC900DB8376 /* Assets.xcassets */,
@@ -414,7 +414,7 @@
 				6F0B9E7E2A2DD68F00E8B9B4 /* UserAgent.cpp in Sources */,
 				6F0B9E782A2DC89E00E8B9B4 /* PJManager.mm in Sources */,
 				6F6F160A2A26CFA500DB8376 /* Call.swift in Sources */,
-				6F0B9E832A31C3F400E8B9B4 /* OutgoingViewController.swift in Sources */,
+				6F0B9E832A31C3F400E8B9B4 /* CallViewController.swift in Sources */,
 				6F09F48F2A36F0FB007A7824 /* Config.swift in Sources */,
 				6F09F4932A370022007A7824 /* MessageModel.swift in Sources */,
 				6F0B9E8D2A32B5F200E8B9B4 /* CallModel.swift in Sources */,
